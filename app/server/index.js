@@ -1,17 +1,19 @@
 const express = require('express');
-const unirest = require("unirest");
+const favicon = require('express-favicon');
+// const unirest = require("unirest");
 const path = require("path");
-const app = express();
 const port = 3000;
-const htmlFilePrefix = "/../app/templates/";
+const htmlFilePrefix = "/../../templates/";
 
+const app = express();
+app.use(favicon(__dirname + "../../../static/img/favicon_deathStar.png"));
 
 app.get("/", (req, res) => {
     res.sendFile('index.html', {
-        root: path.join(__dirname, '../templates/')
+        root: path.join(__dirname, htmlFilePrefix)
     });
 });
 
 app.listen(port, () => {
-    console.log(`Initial app listening at localhost, on port ${port}`);
+    console.log(`App is listening at localhost on port ${port}!`);
 });
