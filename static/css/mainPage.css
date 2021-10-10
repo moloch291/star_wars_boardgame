@@ -6,3 +6,12 @@ body {
 #sw-logo {
     margin-left: 32%;
 }
+
+.main-button-container {
+    margin-left: 37.4%;
+    margin-top: 3%;
+}
+
+#main-button {
+    height: 500px;
+}
