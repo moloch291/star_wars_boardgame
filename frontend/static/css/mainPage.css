@@ -1,6 +1,7 @@
 body {
     background-image: url("../img/_galaxyBackground1.jpg");
     background-size: 1920px 1080px;
+    justify-content: center;
 }
 
 #sw-logo {
