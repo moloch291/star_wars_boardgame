@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Star Wars Board Game</title>
-    <!-- Custom CSS link: -->
+    <!-- CSS links: -->
     <link rel="stylesheet" type="text/css" href="static/css/mainPage.css">
+    <link rel="stylesheet" type="text/css" href="static/css/socialMediaButtons.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <!-- Script tags: -->
     <script type="module" src="static/js/handleMain.js" defer></script>
 </head>
 <body>
@@ -13,7 +18,18 @@
         <img id="sw-logo" src="static/img/_swLogo2.png" alt="star wars logo">
     </div>
     <div class="main-button-container">
-        <img id="main-button" src="static/img/_jediButton.png" alt="main button with jedi logo">
+        <div id="main-button-shader">
+            <img id="main-button" src="static/img/_jediButton.png" alt="main button with jedi logo">
+        </div>
+    </div>
+    <div class="social-media-buttons">
+        <ul>
+            <li><i class="fab fa-facebook-f"></i></li>
+            <li><i class="fab fa-twitter"></i></li>
+            <li><i class="fab fa-instagram"></i></li>
+            <li><i class="fab fa-linkedin-in"></i></li>
+            <li><i class="fab fa-youtube"></i></li>
+        </ul>
     </div>
 </body>
 </html>

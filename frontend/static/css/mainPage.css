@@ -15,3 +15,12 @@ body {
 #main-button {
     height: 300px;
 }
+
+#main-button-shader {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    border-bottom-color: white;
+    position: fixed;
+    z-index: 999;
+}
