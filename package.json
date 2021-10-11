@@ -2,7 +2,7 @@
   "name": "StarWarsBoardGame",
   "version": "1.0.0",
   "description": "",
-  "main": "app/server/index.js",
+  "main": "backend/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,9 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
     "unirest": "^0.6.0"
   },
   "devDependencies": {
-    "consolidate": "^0.16.0"
+    "consolidate": "^0.16.0",
+    "nunjucks": "^3.2.3"
   }
 }
