@@ -1,6 +1,6 @@
 body {
     background-image: url("../img/_galaxyBackground1.jpg");
-    background-size: 100%;
+    background-size: 1920px 1080px;
 }
 
 #sw-logo {
@@ -8,10 +8,10 @@ body {
 }
 
 .main-button-container {
-    margin-left: 37.4%;
-    margin-top: 3%;
+    margin-left: 42.2%;
+    margin-top: 8%;
 }
 
 #main-button {
-    height: 500px;
+    height: 300px;
 }
