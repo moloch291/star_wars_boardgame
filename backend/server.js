@@ -3,12 +3,12 @@ const favicon = require('express-favicon');
 // const unirest = require("unirest");
 const path = require("path");
 const port = 8000;
-const htmlFilePrefix = "/../frontend2/public/";
+const htmlFilePrefix = "/../frontend/public/";
 
 const app = express();
 app.set('views', __dirname + htmlFilePrefix);
-app.use(favicon(__dirname + "/../frontend2/public/img/favicon_deathStar.png"));
-app.use("/static", express.static(path.join(__dirname + "/../frontend2/static")));
+app.use(favicon(__dirname + "/../frontend/public/img/favicon_deathStar.png"));
+app.use("/public", express.static(path.join(__dirname + "/../frontend/public")));
 
 
 app.get(
