@@ -8,10 +8,6 @@ body {
     justify-content: center;
 }
 
-.menu-logo {
-    margin-bottom: 60%;
-}
-
 ul {
     display: flex;
 }

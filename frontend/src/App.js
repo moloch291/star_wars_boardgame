@@ -1,12 +1,15 @@
-import logo from './img/_swLogo2.png';
 import './css/mainPage.css';
-import Menu from "./components/Menu";
+import MainMenu from "./components/Menu";
+import AudioHandler from "./components/AudioHandler";
+import LogIn from "./components/LogIn";
 
 
 function App() {
   return (
     <div className="App">
-      <Menu/>
+        <MainMenu/>
+        <LogIn/>
+        <AudioHandler/>
     </div>
   );
 }
