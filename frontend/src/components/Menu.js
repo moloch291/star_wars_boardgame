@@ -5,9 +5,13 @@ import LogIn from "./LogIn";
 
 
 function MainMenu() {
+
     async function logIn() {
+        // Variables:
         let startButton = document.querySelector("#StartButton")
         let loginButtons = document.querySelector(".LogIn");
+        const mainTheme = document.querySelector(".mainTheme");
+        // Fade out main button and fade in login options:
         await startButton.classList.add("fadeOut");
         setTimeout(
             () => loginButtons.removeAttribute("hidden"),
@@ -17,7 +21,11 @@ function MainMenu() {
             () => startButton.setAttribute("hidden", "true"),
             1000
         );
-        loginButtons.classList.add("fadeIn")
+        loginButtons.classList.add("fadeIn");
+        // Play theme:
+        mainTheme.volume = 0.2;
+        mainTheme.play();
+        mainTheme.loop = true;
     }
 
     return (
@@ -29,7 +37,6 @@ function MainMenu() {
                  id="StartButton"
                  alt="Press to start!"
                  onClick={() => logIn()}/>
-
             <LogIn/>
             <ul>
                 <li>

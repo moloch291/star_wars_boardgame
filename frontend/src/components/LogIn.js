@@ -1,4 +1,5 @@
 function LogIn() {
+
     function signIn() {
         return void (0);
     }
@@ -11,8 +12,26 @@ function LogIn() {
         <div className="LogIn" hidden>
             <LoggingIn/>
             <Registration/>
-            <button className="glow-on-hover" id="login" onClick={() => signIn()}>Log in!</button>
-            <button className="glow-on-hover" id="registration" onClick={() => signUp()}>Registration!</button>
+            <button className="glow-on-hover"
+                    id="login"
+                    onClick={
+                        () => signIn()
+                    }
+                    onMouseEnter={
+                        () => document.querySelector(".xWingSound").play()
+                    }>
+                Log in!
+            </button>
+            <button className="glow-on-hover"
+                    id="registration"
+                    onClick={
+                        () => signUp()
+                    }
+                    onMouseEnter={
+                        () => document.querySelector(".TieFighterSound").play()
+                    }>
+                Registration!
+            </button>
         </div>
     );
 }
