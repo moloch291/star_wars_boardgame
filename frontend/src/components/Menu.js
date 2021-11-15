@@ -1,12 +1,23 @@
 import logo from '../img/_swLogo2.png';
 import startButton from '../img/_jediButton.png';
 import '../css/mainPage.css';
+import LogIn from "./LogIn";
 
 
 function MainMenu() {
-    function logIn() {
-        console.log("This button will make login options visible!");
-        return void (0);
+    async function logIn() {
+        let startButton = document.querySelector("#StartButton")
+        let loginButtons = document.querySelector(".LogIn");
+        await startButton.classList.add("fadeOut");
+        setTimeout(
+            () => loginButtons.removeAttribute("hidden"),
+            1000
+        );
+        await setTimeout(
+            () => startButton.setAttribute("hidden", "true"),
+            1000
+        );
+        loginButtons.classList.add("fadeIn")
     }
 
     return (
@@ -15,8 +26,11 @@ function MainMenu() {
                 <img src={logo} className="menu-logo" alt="logo" />
             </header>
             <img src={startButton}
+                 id="StartButton"
                  alt="Press to start!"
                  onClick={() => logIn()}/>
+
+            <LogIn/>
             <ul>
                 <li>
                     <i className="fab fa-facebook-f"
