@@ -19,8 +19,7 @@ function LogIn() {
                     }
                     onMouseEnter={
                         () => document.querySelector(".xWingSound").play()
-                    }>
-                Log in!
+                    }>Log in!
             </button>
             <button className="glow-on-hover"
                     id="registration"
@@ -29,8 +28,7 @@ function LogIn() {
                     }
                     onMouseEnter={
                         () => document.querySelector(".TieFighterSound").play()
-                    }>
-                Registration!
+                    }>Registration!
             </button>
         </div>
     );
