@@ -3,9 +3,12 @@ import xWingSound from "../audio/effect/XWing flyby 1.mp3";
 import xWingFire from "../audio/effect/XWing fire.mp3";
 import TieFighterSound from "../audio/effect/TIE fighter flyby 1.mp3";
 import TieFighterShot from "../audio/effect/TIE fighter fire.mp3";
-import lightSaber1 from "../audio/effect/lightsaber1.wav";
-import lightSaber2 from "../audio/effect/lightsaber2.wav";
-import lightSaber3 from "../audio/effect/lightsaber3.wav";
+import lightSaberActivation1 from "../audio/effect/lightsaberActivation1.mp3";
+import lightSaberActivation2 from "../audio/effect/lightsaberActivation2.mp3";
+import lightSaberActivation3 from "../audio/effect/lightsaberActivation3.mp3";
+import lightSaberHit1 from "../audio/effect/lightsaberHit1.mp3";
+import lightSaberHit2 from "../audio/effect/lightsaberHit2.mp3";
+import lightSaberHit3 from "../audio/effect/lightsaberHit3.mp3";
 import R2D2_Happy from "../audio/effect/Happy ThreeChirp.mp3";
 import R2D2_Happy_2 from "../audio/effect/Happy Confirmation.mp3";
 import doorSound from "../audio/effect/Blast door.mp3";
@@ -19,9 +22,12 @@ function AudioHandler() {
             <XWingFire/>
             <TieFighterEffect/>
             <TieFighterFire/>
-            <LightSaberSound1/>
-            <LightSaberSound2/>
-            <LightSaberSound3/>
+            <LightSaberActivation1/>
+            <LightSaberActivation2/>
+            <LightSaberActivation3/>
+            <LightSaberHit1/>
+            <LightSaberHit2/>
+            <LightSaberHit3/>
             <R2D2_1/>
             <R2D2_2/>
             <DoorOpenSound/>
@@ -29,18 +35,12 @@ function AudioHandler() {
     );
 }
 
+// Hover and click sound effects in menu:
+
 function DoorOpenSound() {
     return (
         <audio className="DoorOpen">
             <source src={doorSound}/>
-        </audio>
-    );
-}
-
-function R2D2_2() {
-    return (
-        <audio className="R2D2-2">
-            <source src={R2D2_Happy_2}/>
         </audio>
     );
 }
@@ -53,26 +53,58 @@ function R2D2_1() {
     );
 }
 
-function LightSaberSound1() {
+function R2D2_2() {
+    return (
+        <audio className="R2D2-2">
+            <source src={R2D2_Happy_2}/>
+        </audio>
+    );
+}
+
+function LightSaberActivation1() {
     return (
         <audio className="lightSaberSound1">
-            <source src={lightSaber1}/>
+            <source src={lightSaberActivation1}/>
         </audio>
     );
 }
 
-function LightSaberSound2() {
+function LightSaberActivation2() {
     return (
         <audio className="lightSaberSound2">
-            <source src={lightSaber2}/>
+            <source src={lightSaberActivation2}/>
         </audio>
     );
 }
 
-function LightSaberSound3() {
+function LightSaberActivation3() {
     return (
         <audio className="lightSaberSound3">
-            <source src={lightSaber3}/>
+            <source src={lightSaberActivation3}/>
+        </audio>
+    );
+}
+
+function LightSaberHit1() {
+    return (
+        <audio className="lightSaberSound4">
+            <source src={lightSaberHit1}/>
+        </audio>
+    );
+}
+
+function LightSaberHit2() {
+    return (
+        <audio className="lightSaberSound5">
+            <source src={lightSaberHit2}/>
+        </audio>
+    );
+}
+
+function LightSaberHit3() {
+    return (
+        <audio className="lightSaberSound6">
+            <source src={lightSaberHit3}/>
         </audio>
     );
 }
@@ -106,6 +138,8 @@ function XWingFire() {
         <source src={xWingFire}/>
     </audio>
 }
+
+// Music in menu:
 
 function MenuTheme() {
     return (
