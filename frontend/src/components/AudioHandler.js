@@ -1,4 +1,4 @@
-import menuTheme from "../audio/music/mainTheme_galaxyDivided.mp3";
+import menuTheme from "../audio/music/funeralOfPadme.mp3";
 import xWingSound from "../audio/effect/XWing flyby 1.mp3";
 import xWingFire from "../audio/effect/XWing fire.mp3";
 import TieFighterSound from "../audio/effect/TIE fighter flyby 1.mp3";
@@ -6,6 +6,9 @@ import TieFighterShot from "../audio/effect/TIE fighter fire.mp3";
 import lightSaber1 from "../audio/effect/lightsaber1.wav";
 import lightSaber2 from "../audio/effect/lightsaber2.wav";
 import lightSaber3 from "../audio/effect/lightsaber3.wav";
+import R2D2_Happy from "../audio/effect/Happy ThreeChirp.mp3";
+import R2D2_Happy_2 from "../audio/effect/Happy Confirmation.mp3";
+import doorSound from "../audio/effect/Blast door.mp3";
 
 
 function AudioHandler() {
@@ -19,7 +22,34 @@ function AudioHandler() {
             <LightSaberSound1/>
             <LightSaberSound2/>
             <LightSaberSound3/>
+            <R2D2_1/>
+            <R2D2_2/>
+            <DoorOpenSound/>
         </div>
+    );
+}
+
+function DoorOpenSound() {
+    return (
+        <audio className="DoorOpen">
+            <source src={doorSound}/>
+        </audio>
+    );
+}
+
+function R2D2_2() {
+    return (
+        <audio className="R2D2-2">
+            <source src={R2D2_Happy_2}/>
+        </audio>
+    );
+}
+
+function R2D2_1() {
+    return (
+        <audio className="R2D2-1">
+            <source src={R2D2_Happy}/>
+        </audio>
     );
 }
 

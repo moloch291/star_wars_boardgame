@@ -6,6 +6,15 @@ import LogIn from "./LogIn";
 
 function MainMenu() {
 
+    function clickSocialMedia(url) {
+        const doorSound = document.querySelector(".DoorOpen");
+        doorSound.volume = 0.3;
+        doorSound.pause();
+        doorSound.currentTime = 0;
+        doorSound.play();
+        window.open(url);
+    }
+
     async function logIn() {
         // Variables:
         let startButton = document.querySelector("#StartButton")
@@ -23,7 +32,6 @@ function MainMenu() {
         );
         loginButtons.classList.add("fadeIn");
         // Play theme:
-        mainTheme.volume = 0.2;
         mainTheme.play();
         mainTheme.loop = true;
     }
@@ -33,16 +41,24 @@ function MainMenu() {
             <header className="MainMenu-header">
                 <img src={logo} className="menu-logo" alt="logo" />
             </header>
-            <img src={startButton}
-                 id="StartButton"
-                 alt="Press to start!"
-                 onClick={() => logIn()}/>
+            <img src={startButton} id="StartButton" alt="Press to start!"
+                 onClick={
+                     () => {
+                         logIn().then(() => {return null;});
+                         document.querySelector(".R2D2-2").play()
+                     }
+                 }
+                 onMouseEnter={
+                     () => document.querySelector(".R2D2-1").play()
+                 }/>
             <LogIn/>
             <ul>
                 <li>
                     <i className="fab fa-facebook-f"
                        onClick={
-                           () => window.open("https://www.facebook.com/komjatidaniel")
+                           () => clickSocialMedia(
+                               "https://www.facebook.com/komjatidaniel"
+                           )
                        }
                        onMouseEnter={
                            () => document.querySelector(".lightSaberSound1").play()
@@ -52,7 +68,9 @@ function MainMenu() {
                 <li>
                     <i className="fab fa-linkedin-in"
                        onClick={
-                           () => window.open("https://hu.linkedin.com/in/d%C3%A1niel-komj%C3%A1ti-6a6b3521a")
+                           () => clickSocialMedia(
+                               "https://hu.linkedin.com/in/d%C3%A1niel-komj%C3%A1ti-6a6b3521a"
+                           )
                        }
                        onMouseEnter={
                            () => document.querySelector(".lightSaberSound2").play()
@@ -62,7 +80,9 @@ function MainMenu() {
                 <li>
                     <i className="fab fa-github" aria-hidden={'true'}
                        onClick={
-                           () => window.open("https://github.com/moloch291/star_wars_boardgame")
+                           () => clickSocialMedia(
+                               "https://github.com/moloch291/star_wars_boardgame"
+                           )
                        }
                        onMouseEnter={
                            () => document.querySelector(".lightSaberSound3").play()

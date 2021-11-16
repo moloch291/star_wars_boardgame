@@ -44,22 +44,30 @@ function LogIn() {
                     onClick={
                         () => {
                             signIn();
-                            document.querySelector(".xWingFire").play();
+                            const xWingFire = document.querySelector(".xWingFire");
+                            xWingFire.play();
                         }
                     }
                     onMouseEnter={
-                        () => document.querySelector(".xWingSound").play()
+                        () => {
+                            const xWingSound = document.querySelector(".xWingSound");
+                            xWingSound.play();
+                        }
                     }>Log in!
             </button>
             <button className="glow-on-hover" id="registration"
                     onClick={
                         () => {
                             signUp();
-                            document.querySelector(".TieFighterFire").play();
+                            const tieFighterFire = document.querySelector(".TieFighterFire");
+                            tieFighterFire.play();
                         }
                     }
                     onMouseEnter={
-                        () => document.querySelector(".TieFighterSound").play()
+                        () => {
+                            const tieFighterSound = document.querySelector(".TieFighterSound");
+                            tieFighterSound.play();
+                        }
                     }>Registration!
             </button>
         </div>
