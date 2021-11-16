@@ -1,6 +1,8 @@
 import menuTheme from "../audio/music/mainTheme_galaxyDivided.mp3";
 import xWingSound from "../audio/effect/XWing flyby 1.mp3";
+import xWingFire from "../audio/effect/XWing fire.mp3";
 import TieFighterSound from "../audio/effect/TIE fighter flyby 1.mp3";
+import TieFighterShot from "../audio/effect/TIE fighter fire.mp3";
 import lightSaber1 from "../audio/effect/lightsaber1.wav";
 import lightSaber2 from "../audio/effect/lightsaber2.wav";
 import lightSaber3 from "../audio/effect/lightsaber3.wav";
@@ -11,7 +13,9 @@ function AudioHandler() {
         <div className="audio">
             <MenuTheme/>
             <XWingEffect/>
+            <XWingFire/>
             <TieFighterEffect/>
+            <TieFighterFire/>
             <LightSaberSound1/>
             <LightSaberSound2/>
             <LightSaberSound3/>
@@ -51,12 +55,26 @@ function TieFighterEffect() {
     );
 }
 
+function TieFighterFire() {
+    return (
+        <audio className="TieFighterFire">
+            <source src={TieFighterShot}/>
+        </audio>
+    );
+}
+
 function XWingEffect() {
     return (
         <audio className="xWingSound">
             <source src={xWingSound}/>
         </audio>
     );
+}
+
+function XWingFire() {
+    return <audio className="xWingFire">
+        <source src={xWingFire}/>
+    </audio>
 }
 
 function MenuTheme() {
