@@ -46,7 +46,9 @@ function MainMenu() {
                     <i className="fab fa-linkedin-in"
                        onClick={
                            () => {
-                               window.open("https://hu.linkedin.com/in/d%C3%A1niel-komj%C3%A1ti-6a6b3521a");
+                               window.open(
+                                   "https://hu.linkedin.com/in/d%C3%A1niel-komj%C3%A1ti-6a6b3521a"
+                               );
                                const saberHitSound = document.querySelector(".lightSaberSound5");
                                saberHitSound.volume = 0.7;
                                saberHitSound.play();
