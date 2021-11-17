@@ -1,5 +1,5 @@
 function LoginAndRegister() {
-
+    // Fade in or out elements in component:
     async function fadeElement(elementClassName, mode, modeToRemove) {
         const elementToFade = document.querySelector(elementClassName);
         if (elementToFade.classList.contains(modeToRemove))
@@ -7,8 +7,8 @@ function LoginAndRegister() {
         await elementToFade.classList.add(mode);
         setTimeout(() => elementToFade.removeAttribute("hidden"), 1000);
     }
-
-    function LoggingIn() {
+    // Login form:
+    function LoginForm() {
         return (
             <div className="loginForm" hidden>
                 <label htmlFor="user-email">Email:</label>
@@ -35,8 +35,8 @@ function LoginAndRegister() {
             </div>
         );
     }
-
-    function Registration() {
+    // Registration form:
+    function RegistrationForm() {
         return (
             <div className="registrationForm" hidden>
                 <label htmlFor="username">Username:</label>
@@ -67,11 +67,11 @@ function LoginAndRegister() {
             </div>
         );
     }
-
+    // Nav buttons to the forms above (forms are originally hidden):
     return (
         <div className="LogIn" hidden>
-            <LoggingIn/>
-            <Registration/>
+            <LoginForm/>
+            <RegistrationForm/>
             <div className="mainButtons">
                 <button className="glow-on-hover" id="login"
                         onClick={
