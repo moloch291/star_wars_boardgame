@@ -1,7 +1,7 @@
 import logo from '../img/_swLogo2.png';
 import startButton from '../img/_jediButton.png';
 import '../css/mainPage.css';
-import LogIn from "./LogIn";
+import LoginAndRegister from "./LoginAndRegister";
 
 
 function MainMenu() {
@@ -26,7 +26,7 @@ function MainMenu() {
                  }
                  title="Click to start!"/>
 
-            <LogIn/>
+            <LoginAndRegister/>
 
             <ul>
                 <li>

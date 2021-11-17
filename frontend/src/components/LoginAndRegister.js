@@ -1,4 +1,12 @@
-function LogIn() {
+function LoginAndRegister() {
+
+    async function fadeElement(elementClassName, mode, modeToRemove) {
+        const elementToFade = document.querySelector(elementClassName);
+        if (elementToFade.classList.contains(modeToRemove))
+            await elementToFade.classList.remove(modeToRemove);
+        await elementToFade.classList.add(mode);
+        setTimeout(() => elementToFade.removeAttribute("hidden"), 1000);
+    }
 
     function LoggingIn() {
         return (
@@ -11,17 +19,16 @@ function LogIn() {
                 <p>New to the game?</p>
                 <button onClick={
                     async () => {
-                        await fadeElement(".loginForm", "fadeOut", "fadeIn");
-                        await fadeElement(".registrationForm", "fadeIn", "fadeOut");
-                        setTimeout(
-                            () => document.querySelector(".registrationForm")
-                                .removeAttribute("hidden"),
-                            1000
+                        await fadeElement(
+                            ".loginForm", "fadeOut", "fadeIn"
+                        );
+                        await fadeElement(
+                            ".registrationForm", "fadeIn", "fadeOut"
                         );
                         setTimeout(
                             () => document.querySelector(".loginForm")
                                 .setAttribute("hidden", "true"),
-                            500
+                            1000
                         );
                     }
                 }>Register!</button>
@@ -44,44 +51,20 @@ function LogIn() {
                 <p>Already have an account?</p>
                 <button onClick={
                     async () => {
-                        await fadeElement(".registrationForm", "fadeOut", "fadeIn");
-                        await fadeElement(".loginForm", "fadeIn", "fadeOut");
+                        await fadeElement(
+                            ".registrationForm", "fadeOut", "fadeIn"
+                        );
+                        await fadeElement(
+                            ".loginForm", "fadeIn", "fadeOut"
+                        );
                         setTimeout(
-                            () => document.querySelector(".loginForm")
-                                .removeAttribute("hidden"), 1000);
+                            () => document.querySelector(".registrationForm")
+                                .setAttribute("hidden", "true"),
+                            1000
+                        );
                     }
                 }>Log in!</button>
             </div>
-        );
-    }
-
-    async function fadeElement(elementClassName, mode, modeToRemove) {
-        const elementToFade = document.querySelector(elementClassName);
-        if (elementToFade.classList.contains(modeToRemove))
-            await elementToFade.classList.remove(modeToRemove);
-        elementToFade.classList.add(mode);
-    }
-
-    async function showLoginForm() {
-        // Fade out main buttons:
-        await fadeElement(".mainButtons", "fadeOut", "fadeIn");
-        const loginForm = document.querySelector(".loginForm");
-        setTimeout(() => loginForm.removeAttribute("hidden"), 1000);
-        loginForm.classList.add("fadeIn");
-        setTimeout(
-            () => document.querySelector(".mainButtons").setAttribute("hidden", "true"),
-            1000
-        );
-    }
-
-    async function showRegistrationForm() {
-        await fadeElement(".mainButtons", "fadeOut", "fadeIn");
-        const registrationForm = document.querySelector(".registrationForm");
-        setTimeout(() => registrationForm.removeAttribute("hidden"), 1000);
-        registrationForm.classList.add("fadeIn");
-        setTimeout(
-            () => document.querySelector(".mainButtons").setAttribute("hidden", "true"),
-            1000
         );
     }
 
@@ -93,9 +76,20 @@ function LogIn() {
                 <button className="glow-on-hover" id="login"
                         onClick={
                             async () => {
-                                await showLoginForm();
+                                //await showLoginForm();
                                 const xWingFire = document.querySelector(".xWingFire");
                                 xWingFire.play();
+                                await fadeElement(
+                                    ".mainButtons", "fadeOut", "fadeIn"
+                                );
+                                await fadeElement(
+                                    ".loginForm", "fadeIn", "fadeOut"
+                                );
+                                setTimeout(
+                                    () => document.querySelector(".mainButtons")
+                                        .setAttribute("hidden", "true"),
+                                    1000
+                                );
                             }
                         }
                         onMouseEnter={
@@ -108,9 +102,20 @@ function LogIn() {
                 <button className="glow-on-hover" id="registration"
                         onClick={
                             async () => {
-                                await showRegistrationForm();
+                                //await showRegistrationForm();
                                 const tieFighterFire = document.querySelector(".TieFighterFire");
                                 tieFighterFire.play();
+                                await fadeElement(
+                                    ".mainButtons", "fadeOut", "fadeIn"
+                                );
+                                await fadeElement(
+                                    ".registrationForm", "fadeIn", "fadeOut"
+                                );
+                                setTimeout(
+                                    () => document.querySelector(".mainButtons")
+                                        .setAttribute("hidden", "true"),
+                                    1000
+                                );
                             }
                         }
                         onMouseEnter={
@@ -125,4 +130,4 @@ function LogIn() {
     );
 }
 
-export default LogIn;
+export default LoginAndRegister;
