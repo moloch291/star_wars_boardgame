@@ -117,7 +117,7 @@ ul li:nth-child(3):hover {
 
 /* Main buttons: */
 
-.LogIn {
+.formContainer {
     height: 512px;
     width: 512px;
     position: relative;
