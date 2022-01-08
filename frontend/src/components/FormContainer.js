@@ -1,24 +1,35 @@
+import {Component} from "react";
+
 import RegistrationForm from "./RegistrationForm";
 import LoginForm from "./LoginForm";
 import MainButtons from "./MainButtons";
-import React from "react";
 
-
-class FormContainer extends React.Component {
+class FormContainer extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            visible: props.visible
+            activeElement: <MainButtons setLogin={this.setLogin}
+                                        setRegistration={this.setRegister}/>
         }
+    }
+
+    setRegister = () => {
+        this.setState({
+            activeElement: <RegistrationForm setLogin={this.setLogin}/>
+        });
+    }
+
+    setLogin = () => {
+        this.setState({
+            activeElement: <LoginForm setRegistration={this.setRegister}/>
+        });
     }
 
     render() {
         return (
             <div className="formContainer">
-                <MainButtons visible={true}/>
-                <LoginForm visible={false}/>
-                <RegistrationForm visible={false}/>
+                {this.state.activeElement}
             </div>
         );
     }

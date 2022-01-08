@@ -1,8 +1,8 @@
-import React from "react";
+import {Component} from "react";
 
 import startButton from '../img/_jediButton.png';
 
-class StartButton extends React.Component {
+class StartButton extends Component {
 
     render() {
         return (

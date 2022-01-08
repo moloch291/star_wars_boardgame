@@ -1,4 +1,4 @@
-import React from "react";
+import {Component} from "react";
 
 import '../css/mainPage.css';
 import FormContainer from "./FormContainer";
@@ -7,21 +7,21 @@ import SocialMediaButtons from "./SocialMediaButtons";
 import HeaderImage from "./HeaderImage.js";
 
 
-class MainMenu extends React.Component {
+class MainMenu extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
             activeElement: <StartButton/>
-        }
-        this.updateState = this.updateState.bind(this)
-    }
+        };
+        this.updateState = this.updateState.bind(this);
+    };
 
     updateState() {
         this.setState({
             activeElement: <FormContainer/>
-        })
-    }
+        });
+    };
 
     render() {
         return (
@@ -33,7 +33,7 @@ class MainMenu extends React.Component {
                 <SocialMediaButtons/>
             </div>
         );
-    }
+    };
 }
 
 export default MainMenu;
