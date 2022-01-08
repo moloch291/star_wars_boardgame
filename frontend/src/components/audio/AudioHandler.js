@@ -1,19 +1,19 @@
 import {Component} from "react";
 
-import menuTheme from "../audio/music/funeralOfPadme.mp3";
-import xWingSound from "../audio/effect/XWing flyby 1.mp3";
-import xWingFire from "../audio/effect/XWing fire.mp3";
-import TieFighterSound from "../audio/effect/TIE fighter flyby 1.mp3";
-import TieFighterShot from "../audio/effect/TIE fighter fire.mp3";
-import lightSaberActivation1 from "../audio/effect/lightsaberActivation1.mp3";
-import lightSaberActivation2 from "../audio/effect/lightsaberActivation2.mp3";
-import lightSaberActivation3 from "../audio/effect/lightsaberActivation3.mp3";
-import lightSaberHit1 from "../audio/effect/lightsaberHit1.mp3";
-import lightSaberHit2 from "../audio/effect/lightsaberHit2.mp3";
-import lightSaberHit3 from "../audio/effect/lightsaberHit3.mp3";
-import R2D2_Happy from "../audio/effect/Happy ThreeChirp.mp3";
-import R2D2_Happy_2 from "../audio/effect/Happy Confirmation.mp3";
-import doorSound from "../audio/effect/Blast door.mp3";
+import menuTheme from "../../audio/music/funeralOfPadme.mp3";
+import xWingSound from "../../audio/effect/XWing flyby 1.mp3";
+import xWingFire from "../../audio/effect/XWing fire.mp3";
+import TieFighterSound from "../../audio/effect/TIE fighter flyby 1.mp3";
+import TieFighterShot from "../../audio/effect/TIE fighter fire.mp3";
+import lightSaberActivation1 from "../../audio/effect/lightsaberActivation1.mp3";
+import lightSaberActivation2 from "../../audio/effect/lightsaberActivation2.mp3";
+import lightSaberActivation3 from "../../audio/effect/lightsaberActivation3.mp3";
+import lightSaberHit1 from "../../audio/effect/lightsaberHit1.mp3";
+import lightSaberHit2 from "../../audio/effect/lightsaberHit2.mp3";
+import lightSaberHit3 from "../../audio/effect/lightsaberHit3.mp3";
+import R2D2_Happy from "../../audio/effect/Happy ThreeChirp.mp3";
+import R2D2_Happy_2 from "../../audio/effect/Happy Confirmation.mp3";
+import doorSound from "../../audio/effect/Blast door.mp3";
 
 
 class AudioHandler extends Component {

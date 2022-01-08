@@ -1,11 +1,11 @@
 import {Component} from "react";
 
-import '../css/mainPage.css';
+import '../../css/mainPage.css';
 import FormContainer from "./FormContainer";
 import StartButton from "./StartButton";
 import SocialMediaButtons from "./SocialMediaButtons";
 import HeaderImage from "./HeaderImage.js";
-import AudioHandler from "./AudioHandler";
+import AudioHandler from "../audio/AudioHandler";
 
 
 class MainMenu extends Component {

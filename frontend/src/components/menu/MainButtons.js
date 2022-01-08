@@ -1,6 +1,9 @@
 import {Component} from "react";
 
-import {playXWingEffect, xWingFire, tieFighterEffect, tieFighterFire} from "./AudioPlayer";
+import {
+    playXWingEffect, xWingFire,
+    tieFighterEffect, tieFighterFire
+} from "../audio/AudioPlayer";
 
 class MainButtons extends Component{
 

@@ -1,6 +1,6 @@
 import './css/mainPage.css';
-import MainMenu from "./components/Menu";
-import AudioHandler from "./components/AudioHandler";
+import MainMenu from "./components/menu/Menu";
+import AudioHandler from "./components/audio/AudioHandler";
 
 
 function App() {

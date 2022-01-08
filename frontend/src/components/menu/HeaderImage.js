@@ -1,4 +1,4 @@
-import logo from "../img/_swLogo2.png";
+import logo from "../../img/_swLogo2.png";
 import React from "react";
 
 
