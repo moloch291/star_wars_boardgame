@@ -1,5 +1,7 @@
 import {Component} from "react";
 
+import {playXWingEffect, xWingFire, tieFighterEffect, tieFighterFire} from "./AudioPlayer";
+
 class MainButtons extends Component{
 
     render() {
@@ -7,11 +9,19 @@ class MainButtons extends Component{
             <div className="mainButtons">
                 <button className="glow-on-hover"
                         id="login"
-                        onClick={this.props.setLogin}>Log in!
+                        onMouseEnter={playXWingEffect}
+                        onClick={() => {
+                            this.props.setLogin()
+                            xWingFire()
+                        }}>Log in!
                 </button>
                 <button className="glow-on-hover"
                         id="registration"
-                        onClick={this.props.setRegistration}>Registration!
+                        onMouseEnter={tieFighterEffect}
+                        onClick={() => {
+                            this.props.setRegistration()
+                            tieFighterFire()
+                        }}>Registration!
                 </button>
             </div>
         );

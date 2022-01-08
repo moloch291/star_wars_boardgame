@@ -1,9 +1,16 @@
 import {Component} from "react";
 
 import startButton from '../img/_jediButton.png';
-import {playMainTheme} from "./AudioPlayer";
+import {playMainTheme, doorSound, r2D2_1, r2D2_2} from "./AudioPlayer";
 
 class StartButton extends Component {
+
+    auth = () => {
+        doorSound()
+        r2D2_1()
+        playMainTheme()
+        this.props.startAuth()
+    }
 
     render() {
         return (
@@ -11,7 +18,8 @@ class StartButton extends Component {
                  id="StartButton"
                  alt="Press to start!"
                  title="Click to start!"
-                 onClick={playMainTheme}/>
+                 onMouseEnter={r2D2_2}
+                 onClick={this.auth}/>
         );
     }
 }

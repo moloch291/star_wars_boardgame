@@ -13,7 +13,7 @@ class MainMenu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeElement: <StartButton/>
+            activeElement: <StartButton startAuth={this.updateActiveElement}/>
         };
     };
 
@@ -27,9 +27,7 @@ class MainMenu extends Component {
         return (
             <div className="MainMenu">
                 <HeaderImage/>
-                <div onClick={this.updateActiveElement}>
-                    {this.state.activeElement}
-                </div>
+                {this.state.activeElement}
                 <SocialMediaButtons/>
                 <AudioHandler/>
             </div>

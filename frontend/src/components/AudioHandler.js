@@ -43,7 +43,7 @@ class AudioHandler extends Component {
 // Hover and click sound effects in menu:
 function DoorOpenSound() {
     return (
-        <audio className="DoorOpen">
+        <audio className="doorOpen">
             <source src={doorSound}/>
         </audio>
     );
@@ -51,7 +51,7 @@ function DoorOpenSound() {
 
 function R2D2_1() {
     return (
-        <audio className="R2D2-1">
+        <audio className="r2D2-1">
             <source src={R2D2_Happy}/>
         </audio>
     );
@@ -59,7 +59,7 @@ function R2D2_1() {
 
 function R2D2_2() {
     return (
-        <audio className="R2D2-2">
+        <audio className="r2D2-2">
             <source src={R2D2_Happy_2}/>
         </audio>
     );
@@ -115,7 +115,7 @@ function LightSaberHit3() {
 
 function TieFighterEffect() {
     return (
-        <audio className="TieFighterSound">
+        <audio className="tieFighterSound">
             <source src={TieFighterSound}/>
         </audio>
     );
@@ -123,7 +123,7 @@ function TieFighterEffect() {
 
 function TieFighterFire() {
     return (
-        <audio className="TieFighterFire">
+        <audio className="tieFighterFire">
             <source src={TieFighterShot}/>
         </audio>
     );
