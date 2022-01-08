@@ -6,6 +6,7 @@ import StartButton from "./StartButton";
 import SocialMediaButtons from "./SocialMediaButtons";
 import HeaderImage from "./HeaderImage.js";
 import AudioHandler from "../audio/AudioHandler";
+import {doorSound, playMainTheme, r2D2_1} from "../audio/AudioPlayer";
 
 
 class MainMenu extends Component {
@@ -13,11 +14,14 @@ class MainMenu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeElement: <StartButton startAuth={this.updateActiveElement}/>
+            activeElement: <StartButton startAuth={this.initAuth}/>
         };
     };
 
-    updateActiveElement = () => {
+    initAuth = () => {
+        doorSound();
+        r2D2_1();
+        playMainTheme();
         this.setState({
             activeElement: <FormContainer/>
         });

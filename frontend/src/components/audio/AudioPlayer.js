@@ -25,7 +25,7 @@ export function tieFighterFire() {
 }
 
 export function doorSound() {
-        const doorSound = document.querySelector(".doorSound");
+        const doorSound = document.querySelector(".doorOpen");
         doorSound.play()
 }
 
