@@ -5,6 +5,7 @@ import FormContainer from "./FormContainer";
 import StartButton from "./StartButton";
 import SocialMediaButtons from "./SocialMediaButtons";
 import HeaderImage from "./HeaderImage.js";
+import AudioHandler from "./AudioHandler";
 
 
 class MainMenu extends Component {
@@ -14,10 +15,9 @@ class MainMenu extends Component {
         this.state = {
             activeElement: <StartButton/>
         };
-        this.updateState = this.updateState.bind(this);
     };
 
-    updateState() {
+    updateActiveElement = () => {
         this.setState({
             activeElement: <FormContainer/>
         });
@@ -27,10 +27,11 @@ class MainMenu extends Component {
         return (
             <div className="MainMenu">
                 <HeaderImage/>
-                <div onClick={this.updateState}>
+                <div onClick={this.updateActiveElement}>
                     {this.state.activeElement}
                 </div>
                 <SocialMediaButtons/>
+                <AudioHandler/>
             </div>
         );
     };

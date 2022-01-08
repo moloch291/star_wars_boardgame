@@ -5,7 +5,6 @@ class RegistrationForm extends Component{
     render() {
         return (
             <div className="registrationForm" hidden>
-                <h3>Registration</h3>
                 <form>
                     <label htmlFor="username">Username:</label>
                     <input type="text" id="username" name="username"/>

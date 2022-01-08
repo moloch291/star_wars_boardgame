@@ -1,3 +1,5 @@
+import {Component} from "react";
+
 import menuTheme from "../audio/music/funeralOfPadme.mp3";
 import xWingSound from "../audio/effect/XWing flyby 1.mp3";
 import xWingFire from "../audio/effect/XWing fire.mp3";
@@ -14,29 +16,31 @@ import R2D2_Happy_2 from "../audio/effect/Happy Confirmation.mp3";
 import doorSound from "../audio/effect/Blast door.mp3";
 
 
-function AudioHandler() {
-    return (
-        <div className="audio">
-            <MenuTheme/>
-            <XWingEffect/>
-            <XWingFire/>
-            <TieFighterEffect/>
-            <TieFighterFire/>
-            <LightSaberActivation1/>
-            <LightSaberActivation2/>
-            <LightSaberActivation3/>
-            <LightSaberHit1/>
-            <LightSaberHit2/>
-            <LightSaberHit3/>
-            <R2D2_1/>
-            <R2D2_2/>
-            <DoorOpenSound/>
-        </div>
-    );
+class AudioHandler extends Component {
+
+    render() {
+        return (
+            <div className="audio">
+                <MenuTheme/>
+                <XWingEffect/>
+                <XWingFire/>
+                <TieFighterEffect/>
+                <TieFighterFire/>
+                <LightSaberActivation1/>
+                <LightSaberActivation2/>
+                <LightSaberActivation3/>
+                <LightSaberHit1/>
+                <LightSaberHit2/>
+                <LightSaberHit3/>
+                <R2D2_1/>
+                <R2D2_2/>
+                <DoorOpenSound/>
+            </div>
+        );
+    }
 }
 
 // Hover and click sound effects in menu:
-
 function DoorOpenSound() {
     return (
         <audio className="DoorOpen">
@@ -140,7 +144,6 @@ function XWingFire() {
 }
 
 // Music in menu:
-
 function MenuTheme() {
     return (
         <audio className="mainTheme">

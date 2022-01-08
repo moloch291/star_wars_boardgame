@@ -3,6 +3,7 @@ import {Component} from "react";
 import RegistrationForm from "./RegistrationForm";
 import LoginForm from "./LoginForm";
 import MainButtons from "./MainButtons";
+import AudioHandler from "./AudioHandler";
 
 class FormContainer extends Component {
 
