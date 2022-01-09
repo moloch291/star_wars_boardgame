@@ -14,6 +14,14 @@ class MainButtons extends Component{
         }
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.visible !== prevProps.visible) {
+            this.setState({
+                visible: this.props.visible
+            });
+        }
+    }
+
     render() {
         if (this.state.visible === true) {
             return (
@@ -22,15 +30,17 @@ class MainButtons extends Component{
                             id="login"
                             onMouseEnter={playXWingEffect}
                             onClick={() => {
-                                xWingFire()
-                            }}>Log in!
+                                xWingFire();
+                                this.props.setLogin();
+                            }}>Log in
                     </button>
                     <button className="glow-on-hover"
                             id="registration"
                             onMouseEnter={tieFighterEffect}
                             onClick={() => {
-                                tieFighterFire()
-                            }}>Registration!
+                                tieFighterFire();
+                                this.props.setRegistration();
+                            }}>Registration
                     </button>
                 </div>
             );

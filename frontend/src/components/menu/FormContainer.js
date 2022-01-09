@@ -24,13 +24,33 @@ class FormContainer extends Component {
         }
     }
 
+    setLogin = () => {
+        this.setState({
+            mainButtonsVisible: false,
+            registrationFormVisible: false,
+            loginFormVisible: true
+        });
+    }
+
+    setRegistration = () => {
+        this.setState({
+            mainButtonsVisible: false,
+            registrationFormVisible: true,
+            loginFormVisible: false
+        });
+    }
+
     render() {
         if (this.state.visible) {
             return (
                 <div className="formContainer">
-                    <MainButtons visible={this.state.mainButtonsVisible}/>
-                    <RegistrationForm visible={this.state.registrationFormVisible}/>
-                    <LoginForm visible={this.state.loginFormVisible}/>
+                    <MainButtons visible={this.state.mainButtonsVisible}
+                                 setLogin={this.setLogin}
+                                 setRegistration={this.setRegistration}/>
+                    <RegistrationForm visible={this.state.registrationFormVisible}
+                                      setLogin={this.setLogin}/>
+                    <LoginForm visible={this.state.loginFormVisible}
+                               setRegistration={this.setRegistration}/>
                 </div>
             );
         }

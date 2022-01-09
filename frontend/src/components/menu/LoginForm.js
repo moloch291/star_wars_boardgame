@@ -1,4 +1,5 @@
 import {Component} from "react";
+import {doorSound} from "../audio/AudioPlayer";
 
 class LoginForm extends Component{
 
@@ -9,6 +10,13 @@ class LoginForm extends Component{
         }
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.visible !== prevProps.visible) {
+            this.setState({
+                visible: this.props.visible
+            });
+        }
+    }
 
     render() {
         if (this.state.visible === true) {
@@ -28,7 +36,11 @@ class LoginForm extends Component{
                             <p>.</p>
                             <button className="formButton">Log in!</button>
                             <p>New to the game?</p>
-                            <button className="formButton">
+                            <button className="formButton"
+                                    onClick={() => {
+                                        doorSound();
+                                        this.props.setRegistration();
+                                    }}>
                                 Register!
                             </button>
                         </form>
