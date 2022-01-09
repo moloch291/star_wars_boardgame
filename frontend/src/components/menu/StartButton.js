@@ -7,18 +7,24 @@ class StartButton extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            visible: this.props.visible
+        }
     }
 
     render() {
-        return (
-            <img src={startButton}
-                 id="startButton"
-                 alt="Press to start!"
-                 title="Click to start!"
-                 onMouseEnter={r2D2_2}
-                 onClick={this.props.startAuth}
-            />
-        );
+        if (this.state.visible)
+            return (
+                <div id="mainContainer">
+                    <img src={startButton}
+                         alt="Press to start!"
+                         title="Click to start!"
+                         onMouseEnter={r2D2_2}
+                         onClick={this.props.fadeInFormContainer}
+                    />
+                </div>
+            );
+        return (<div/>);
     }
 }
 

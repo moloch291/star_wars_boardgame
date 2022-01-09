@@ -3,36 +3,30 @@ import {Component} from "react";
 import RegistrationForm from "./RegistrationForm";
 import LoginForm from "./LoginForm";
 import MainButtons from "./MainButtons";
-import AudioHandler from "../audio/AudioHandler";
 
 class FormContainer extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            activeElement: <MainButtons setLogin={this.setLogin}
-                                        setRegistration={this.setRegister}/>
+            selfVisible: props.visible,
+            mainButtonsVisible: true,
+            registrationFormVisible: false,
+            loginFormVisible: false
         }
     }
 
-    setRegister = () => {
-        this.setState({
-            activeElement: <RegistrationForm setLogin={this.setLogin}/>
-        });
-    }
-
-    setLogin = () => {
-        this.setState({
-            activeElement: <LoginForm setRegistration={this.setRegister}/>
-        });
-    }
-
     render() {
-        return (
-            <div className="formContainer">
-                {this.state.activeElement}
-            </div>
-        );
+        if (this.state.selfVisible) {
+            return (
+                <div className="formContainer">
+                    <MainButtons visible={this.state.mainButtonsVisible}/>
+                    <RegistrationForm visible={this.state.registrationFormVisible}/>
+                    <LoginForm visible={this.state.loginFormVisible}/>
+                </div>
+            );
+        }
+        return(<div/>);
     }
 }
 

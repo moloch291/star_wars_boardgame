@@ -15,24 +15,28 @@ class MainMenu extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeElement: <StartButton startAuth={this.initAuth}/>
-        };
-    };
+            startButtonVisible: true,
+            formContainerVisible: false
+        }
+    }
 
-    initAuth = async () => {
+    fadeInFormContainer = () => {
         doorSound();
         r2D2_1();
         playMainTheme();
         this.setState({
-            activeElement: <FormContainer/>
+            startButtonVisible: false,
+            formContainerVisible: true
         });
-    };
+    }
 
     render() {
         return (
             <div className="MainMenu">
                 <HeaderImage/>
-                {this.state.activeElement}
+                <StartButton visible={this.state.startButtonVisible}
+                             fadeInFormContainer={this.fadeInFormContainer}/>
+                <FormContainer visible={this.state.formContainerVisible}/>
                 <SocialMediaButtons/>
                 <AudioHandler/>
             </div>

@@ -7,14 +7,20 @@ import {
 
 class MainButtons extends Component{
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            visible: props.visible
+        }
+    }
+
     render() {
         return (
-            <div className="mainButtons">
+            <div className="mainContainer">
                 <button className="glow-on-hover"
                         id="login"
                         onMouseEnter={playXWingEffect}
                         onClick={() => {
-                            this.props.setLogin()
                             xWingFire()
                         }}>Log in!
                 </button>
@@ -22,7 +28,6 @@ class MainButtons extends Component{
                         id="registration"
                         onMouseEnter={tieFighterEffect}
                         onClick={() => {
-                            this.props.setRegistration()
                             tieFighterFire()
                         }}>Registration!
                 </button>

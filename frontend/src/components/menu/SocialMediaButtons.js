@@ -26,24 +26,26 @@ class SocialMediaButtons extends Component {
 
     render() {
         return (
-            <ul>
-                <li>
-                    <i className="fab fa-facebook-f"
-                       onMouseEnter={lightSaberActivation_1}
-                       onClick={this.facebookEvent}/>
-                </li>
-                <li>
-                    <i className="fab fa-linkedin-in"
-                       onMouseEnter={lightSaberActivation_2}
-                       onClick={this.linkedInEvent}/>
-                </li>
-                <li>
-                    <i className="fab fa-github"
-                       aria-hidden={'true'}
-                       onMouseEnter={lightSaberActivation_3}
-                       onClick={this.githubEvent}/>
-                </li>
-            </ul>
+            <div className="socialMediaContainer">
+                <ul>
+                    <li>
+                        <i className="fab fa-facebook-f"
+                           onMouseEnter={lightSaberActivation_1}
+                           onClick={this.facebookEvent}/>
+                    </li>
+                    <li>
+                        <i className="fab fa-linkedin-in"
+                           onMouseEnter={lightSaberActivation_2}
+                           onClick={this.linkedInEvent}/>
+                    </li>
+                    <li>
+                        <i className="fab fa-github"
+                           aria-hidden={'true'}
+                           onMouseEnter={lightSaberActivation_3}
+                           onClick={this.githubEvent}/>
+                    </li>
+                </ul>
+            </div>
         );
     }
 }

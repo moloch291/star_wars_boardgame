@@ -1,7 +1,8 @@
 /* General menu body rules: */
 body {
-    background-image: url("../img/_galaxyBackground1.jpg");
-    background-size: 1920px 1080px;
+    background-image: url("../img/_galaxyBackground_1.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
     display: flex;
     height: 100vh;
     text-align: center;
@@ -9,9 +10,26 @@ body {
     justify-content: center;
 }
 
-#startButton {
-    height: 380px;
+#mainContainer {
+    position: center;
+    align-items: center;
+    justify-content: center;
+    height: 420px;
+    margin-bottom: -10%;
 }
 
-.mainButtons {
+#mainContainer img {
+    margin-top: 5%;
+    height: 320px;
+}
+
+.mainMenuHeader {
+    position: center;
+    margin-top: -15%;
+    height: 250px;
+}
+
+.mainMenuHeader img {
+    display: block;
+    height: 250px;
 }
