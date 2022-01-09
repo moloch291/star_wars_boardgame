@@ -10,6 +10,15 @@ body {
     justify-content: center;
 }
 
+.mainContainer {
+    height: 420px;
+}
+
+#startButton {
+    margin-top: 10%;
+    height: 320px;
+}
+
 #mainContainer {
     position: center;
     align-items: center;
@@ -25,11 +34,11 @@ body {
 
 .mainMenuHeader {
     position: center;
-    margin-top: -15%;
-    height: 250px;
+    margin-top: -20%;
+    height: 210px;
 }
 
 .mainMenuHeader img {
     display: block;
-    height: 250px;
+    height: 230px;
 }

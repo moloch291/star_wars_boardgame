@@ -1,7 +1,7 @@
 import {Component} from "react";
 
 import startButton from '../../img/_jediButton.png';
-import {r2D2_2} from "../audio/AudioPlayer";
+import {doorSound, playMainTheme, r2D2_1, r2D2_2} from "../audio/AudioPlayer";
 
 class StartButton extends Component {
 
@@ -12,17 +12,32 @@ class StartButton extends Component {
         }
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.visible !== prevProps.visible) {
+            this.setState({
+                visible: this.props.visible
+            });
+        }
+    }
+
+    pressSound() {
+        doorSound();
+        r2D2_1();
+        playMainTheme();
+    }
+
     render() {
         if (this.state.visible)
             return (
-                <div id="mainContainer">
-                    <img src={startButton}
-                         alt="Press to start!"
-                         title="Click to start!"
-                         onMouseEnter={r2D2_2}
-                         onClick={this.props.fadeInFormContainer}
-                    />
-                </div>
+                <img src={startButton}
+                     id="startButton"
+                     alt="Press to start!"
+                     title="Click to start!"
+                     onMouseEnter={r2D2_2}
+                     onClick={() => {
+                         this.pressSound();
+                         this.props.fadeInFormContainer();
+                     }}/>
             );
         return (<div/>);
     }

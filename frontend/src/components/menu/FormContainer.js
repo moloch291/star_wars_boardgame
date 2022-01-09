@@ -9,15 +9,23 @@ class FormContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selfVisible: props.visible,
+            visible: this.props.visible,
             mainButtonsVisible: true,
             registrationFormVisible: false,
             loginFormVisible: false
         }
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.visible !== prevProps.visible) {
+            this.setState({
+                visible: this.props.visible
+            });
+        }
+    }
+
     render() {
-        if (this.state.selfVisible) {
+        if (this.state.visible) {
             return (
                 <div className="formContainer">
                     <MainButtons visible={this.state.mainButtonsVisible}/>

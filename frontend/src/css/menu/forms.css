@@ -1,7 +1,9 @@
 .formContainer {
-    height: 420px;
-    width: 512px;
+    height: 380px;
     position: relative;
+    align-content: center;
+    align-items: center;
+    margin-bottom: 0.5%;
 }
 
 /* Main menu forms: */

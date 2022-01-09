@@ -5,8 +5,6 @@ import StartButton from "./StartButton";
 import SocialMediaButtons from "./SocialMediaButtons";
 import HeaderImage from "./HeaderImage.js";
 import AudioHandler from "../audio/AudioHandler";
-// Audio:
-import {doorSound, playMainTheme, r2D2_1} from "../audio/AudioPlayer";
 // Style:
 import '../../css/menu/forms.css';
 
@@ -20,12 +18,11 @@ class MainMenu extends Component {
         }
     }
 
-    fadeInFormContainer = () => {
-        doorSound();
-        r2D2_1();
-        playMainTheme();
+    fadeInFormContainer = async () => {
+        await this.setState({
+            startButtonVisible: false
+        });
         this.setState({
-            startButtonVisible: false,
             formContainerVisible: true
         });
     }
@@ -34,9 +31,11 @@ class MainMenu extends Component {
         return (
             <div className="MainMenu">
                 <HeaderImage/>
-                <StartButton visible={this.state.startButtonVisible}
-                             fadeInFormContainer={this.fadeInFormContainer}/>
-                <FormContainer visible={this.state.formContainerVisible}/>
+                <div className="mainContainer">
+                    <StartButton visible={this.state.startButtonVisible}
+                                 fadeInFormContainer={this.fadeInFormContainer}/>
+                    <FormContainer visible={this.state.formContainerVisible}/>
+                </div>
                 <SocialMediaButtons/>
                 <AudioHandler/>
             </div>
