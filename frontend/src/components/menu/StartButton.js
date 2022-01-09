@@ -12,7 +12,7 @@ class StartButton extends Component {
     render() {
         return (
             <img src={startButton}
-                 id="StartButton"
+                 id="startButton"
                  alt="Press to start!"
                  title="Click to start!"
                  onMouseEnter={r2D2_2}

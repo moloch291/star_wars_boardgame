@@ -8,17 +8,19 @@ import {
 class SocialMediaButtons extends Component {
 
     facebookEvent() {
-        window.open("");
+        window.open("https://www.facebook.com/komjatidaniel/");
         lightSaberHit_1();
     }
 
     linkedInEvent() {
-        window.open("");
+        window.open(
+            "https://www.linkedin.com/in/d%C3%A1niel-komj%C3%A1ti-6a6b3521a/"
+        );
         lightSaberHit_2();
     }
 
     githubEvent() {
-        window.open("");
+        window.open("https://github.com/moloch291");
         lightSaberHit_3();
     }
 

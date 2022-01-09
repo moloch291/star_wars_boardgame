@@ -13,7 +13,7 @@ class HeaderImage extends React.Component {
 
     render() {
         return (
-            <header className="MainMenu-header">
+            <header className="mainMenuHeader">
                 <img src={logo} className="menu-logo" alt="logo"/>
             </header>
         );

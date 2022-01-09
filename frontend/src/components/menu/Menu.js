@@ -1,13 +1,14 @@
 import {Component} from "react";
-
-import '../../css/mainPage.css';
+// components:
 import FormContainer from "./FormContainer";
 import StartButton from "./StartButton";
 import SocialMediaButtons from "./SocialMediaButtons";
 import HeaderImage from "./HeaderImage.js";
 import AudioHandler from "../audio/AudioHandler";
+// Audio:
 import {doorSound, playMainTheme, r2D2_1} from "../audio/AudioPlayer";
-
+// Style:
+import '../../css/menu/forms.css';
 
 class MainMenu extends Component {
 
@@ -18,7 +19,7 @@ class MainMenu extends Component {
         };
     };
 
-    initAuth = () => {
+    initAuth = async () => {
         doorSound();
         r2D2_1();
         playMainTheme();
