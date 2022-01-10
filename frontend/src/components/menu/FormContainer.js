@@ -17,11 +17,25 @@ class FormContainer extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (this.props.visible !== prevProps.visible) {
-            this.setState({
-                visible: this.props.visible
-            });
-        }
+        if (this.props.visible !== prevProps.visible)
+            this.setState({visible: this.props.visible});
+    }
+
+    componentDidMount() {
+        setTimeout(
+            () => document.querySelector(".formContainer").classList.remove("fadeIn"),
+            601
+        );
+    }
+
+    // #################################################################################################################
+
+    setButtons = () => {
+        this.setState({
+            mainButtonsVisible: true,
+            registrationFormVisible: false,
+            loginFormVisible: false
+        });
     }
 
     setLogin = () => {
@@ -39,22 +53,19 @@ class FormContainer extends Component {
             loginFormVisible: false
         });
     }
-
+    // #################################################################################################################
     render() {
-        if (this.state.visible) {
-            return (
-                <div className="formContainer">
-                    <MainButtons visible={this.state.mainButtonsVisible}
-                                 setLogin={this.setLogin}
-                                 setRegistration={this.setRegistration}/>
-                    <RegistrationForm visible={this.state.registrationFormVisible}
-                                      setLogin={this.setLogin}/>
-                    <LoginForm visible={this.state.loginFormVisible}
-                               setRegistration={this.setRegistration}/>
-                </div>
-            );
-        }
-        return(<div/>);
+        return (
+            <div className="formContainer fadeIn">
+                <MainButtons visible={this.state.mainButtonsVisible}
+                             setLogin={this.setLogin}
+                             setRegistration={this.setRegistration}/>
+                <RegistrationForm visible={this.state.registrationFormVisible}
+                                  setLogin={this.setLogin}/>
+                <LoginForm visible={this.state.loginFormVisible}
+                           setRegistration={this.setRegistration}/>
+            </div>
+        );
     }
 }
 

@@ -15,9 +15,14 @@
     left: 50%;
 }
 
+.loginForm .loginWrapper form img {
+    width: 60%;
+    margin: 10%;
+}
+
 .registrationWrapper {
-    margin-top: -70px;
-    margin-left: 10px;
+    margin-top: -3%;
+    margin-left: 1%;
 }
 
 .loginWrapper {
@@ -48,11 +53,19 @@
 
 .registrationForm {
     margin-top: -8px;
-    height: 430px;
+    height: 320px;
+    width: 530px;
     background-image: url("../../img/metalicBackground_1.jpeg");
-    background-size: 1020px;
+    background-size: 610px;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.registrationForm img {
+    width: 50%;
+    margin-bottom: 3%;
+    margin-left: 4%;
+    margin-right: 5%;
 }
 
 p {

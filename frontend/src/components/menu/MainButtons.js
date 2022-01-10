@@ -1,5 +1,8 @@
 import {Component} from "react";
 
+import lightLoginTextImg from "../../img/textImages/text-loginLight.png"
+import lightRegisterTextImg from "../../img/textImages/text_registerLight.png"
+
 import {
     playXWingEffect, xWingFire,
     tieFighterEffect, tieFighterFire
@@ -7,45 +10,38 @@ import {
 
 class MainButtons extends Component{
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            visible: this.props.visible
-        }
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.visible !== prevProps.visible) {
-            this.setState({
-                visible: this.props.visible
-            });
-        }
+    async componentDidMount() {
+        let self = document.querySelector(".mainButtonContainer");
+        self.classList.add("fadeIn");
+        await self.removeAttribute("hidden");
+        self.classList.remove("fadeIn");
     }
 
     render() {
-        if (this.state.visible === true) {
-            return (
-                <div className="mainButtonContainer">
-                    <button className="glow-on-hover"
-                            id="login"
-                            onMouseEnter={playXWingEffect}
-                            onClick={() => {
-                                xWingFire();
-                                this.props.setLogin();
-                            }}>Log in
-                    </button>
-                    <button className="glow-on-hover"
-                            id="registration"
-                            onMouseEnter={tieFighterEffect}
-                            onClick={() => {
-                                tieFighterFire();
-                                this.props.setRegistration();
-                            }}>Registration
-                    </button>
-                </div>
-            );
-        }
-        return (<div/>);
+        return (
+            <div className="mainButtonContainer" hidden>
+                <button className="glow-on-hover"
+                        id="login"
+                        onMouseEnter={playXWingEffect}
+                        onClick={() => {
+                            xWingFire();
+                            this.props.setLogin();
+                        }}>
+                    <img src={lightLoginTextImg} alt="login button"/>
+                </button>
+                <button className="glow-on-hover"
+                        id="registration"
+                        onMouseEnter={tieFighterEffect}
+                        onClick={() => {
+                            tieFighterFire();
+                            this.props.setRegistration();
+                        }}>
+                    <img src={lightRegisterTextImg}
+                         alt="login button"
+                         className="registerButtonText"/>
+                </button>
+            </div>
+        );
     }
 }
 

@@ -14,27 +14,37 @@ class MainMenu extends Component {
         super(props);
         this.state = {
             startButtonVisible: true,
+            startButtonFadeOut: false,
             formContainerVisible: false
         }
     }
 
-    fadeInFormContainer = async () => {
-        await this.setState({
-            startButtonVisible: false
-        });
-        this.setState({
-            formContainerVisible: true
-        });
+    fadeInFormContainer = () => {
+        this.setState({startButtonFadeOut: true});
+        setTimeout(
+            () => this.setState({startButtonVisible: false}),
+            600
+        );
+        setTimeout(
+            () => this.setState({formContainerVisible: true}),
+            600
+        );
     }
 
     render() {
+        // Possible elements:
+        const startButton = <StartButton visible={this.state.startButtonVisible}
+                                         fadeInFormContainer={this.fadeInFormContainer}
+                                         fadeOut={this.state.startButtonFadeOut}/>
+        const formContainer = <FormContainer visible={this.state.formContainerVisible}/>
+        // Finalize output:
+        let output = this.state.startButtonVisible ? startButton : formContainer;
+        // Render:
         return (
             <div className="MainMenu">
                 <HeaderImage/>
                 <div className="mainContainer">
-                    <StartButton visible={this.state.startButtonVisible}
-                                 fadeInFormContainer={this.fadeInFormContainer}/>
-                    <FormContainer visible={this.state.formContainerVisible}/>
+                    {output}
                 </div>
                 <SocialMediaButtons/>
                 <AudioHandler/>

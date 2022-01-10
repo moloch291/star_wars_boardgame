@@ -1,6 +1,6 @@
 export function playMainTheme() {
         let mainTheme = document.querySelector(".mainTheme");
-        mainTheme.play()
+        mainTheme.play();
         mainTheme.loop = true;
 }
 
@@ -21,12 +21,14 @@ export function tieFighterEffect() {
 
 export function tieFighterFire() {
         const tieFighterFire = document.querySelector(".tieFighterFire");
-        tieFighterFire.play()
+        tieFighterFire.play();
 }
 
 export function doorSound() {
         const doorSound = document.querySelector(".doorOpen");
-        doorSound.play()
+        doorSound.pause();
+        doorSound.currentTime = 0;
+        doorSound.play();
 }
 
 export function r2D2_1() {
@@ -36,7 +38,7 @@ export function r2D2_1() {
 
 export function r2D2_2() {
         const r2D2_2 = document.querySelector(".r2D2-2");
-        r2D2_2.play()
+        r2D2_2.play();
 }
 
 export function lightSaberActivation_1() {

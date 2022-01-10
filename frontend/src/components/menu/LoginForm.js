@@ -1,4 +1,6 @@
 import {Component} from "react";
+
+import loginTextImg from "../../img/textImages/text_login.png";
 import {doorSound} from "../audio/AudioPlayer";
 
 class LoginForm extends Component{
@@ -24,7 +26,7 @@ class LoginForm extends Component{
                 <div className="loginForm">
                     <div className="loginWrapper">
                         <form>
-                            <h3>Login</h3>
+                            <img src={loginTextImg} alt="login text"/>
                             <input type="email"
                                    id="user-email"
                                    name="user-email"
@@ -34,14 +36,13 @@ class LoginForm extends Component{
                                    name="user-password"
                                    placeholder="Password"/>
                             <p>.</p>
-                            <button className="formButton">Log in!</button>
+                            <button className="formButton">Login</button>
                             <p>New to the game?</p>
                             <button className="formButton"
                                     onClick={() => {
                                         doorSound();
                                         this.props.setRegistration();
-                                    }}>
-                                Register!
+                                    }}>Register
                             </button>
                         </form>
                     </div>
