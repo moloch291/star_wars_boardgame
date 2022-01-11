@@ -10,31 +10,27 @@ import {
 
 class MainButtons extends Component{
 
-    async componentDidMount() {
-        let self = document.querySelector(".mainButtonContainer");
-        self.classList.add("fadeIn");
-        await self.removeAttribute("hidden");
-        self.classList.remove("fadeIn");
-    }
-
     render() {
+        let classes = "mainButtonContainer";
+        classes += this.props.fadeOut ? " fadeOut" : "";
+
         return (
-            <div className="mainButtonContainer" hidden>
+            <div className={classes}>
                 <button className="glow-on-hover"
                         id="login"
                         onMouseEnter={playXWingEffect}
-                        onClick={() => {
+                        onClick={(e) => {
                             xWingFire();
-                            this.props.setLogin();
+                            this.props.setLogin(e.currentTarget);
                         }}>
                     <img src={lightLoginTextImg} alt="login button"/>
                 </button>
                 <button className="glow-on-hover"
                         id="registration"
                         onMouseEnter={tieFighterEffect}
-                        onClick={() => {
+                        onClick={(e) => {
                             tieFighterFire();
-                            this.props.setRegistration();
+                            this.props.setRegistration(e.currentTarget);
                         }}>
                     <img src={lightRegisterTextImg}
                          alt="login button"

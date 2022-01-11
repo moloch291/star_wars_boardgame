@@ -5,50 +5,45 @@ import {doorSound} from "../audio/AudioPlayer";
 
 class LoginForm extends Component{
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            visible: this.props.visible
-        }
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.visible !== prevProps.visible) {
-            this.setState({
-                visible: this.props.visible
-            });
-        }
+    componentDidMount() {
+        setTimeout(
+            () => document.querySelector(".loginForm").classList.remove("fadeIn"),
+            601
+        );
     }
 
     render() {
-        if (this.state.visible === true) {
-            return (
-                <div className="loginForm">
-                    <div className="loginWrapper">
-                        <form>
-                            <img src={loginTextImg} alt="login text"/>
-                            <input type="email"
-                                   id="user-email"
-                                   name="user-email"
-                                   placeholder="Email"/>
-                            <input type="password"
-                                   id="user-password"
-                                   name="user-password"
-                                   placeholder="Password"/>
-                            <p>.</p>
-                            <button className="formButton">Login</button>
-                            <p>New to the game?</p>
-                            <button className="formButton"
-                                    onClick={() => {
-                                        doorSound();
-                                        this.props.setRegistration();
-                                    }}>Register
-                            </button>
-                        </form>
-                    </div>
+        let classes = "loginForm";
+        if (this.props.fadeIn) classes += " fadeIn";
+        if (this.props.fadeOut) classes += " fadeOut";
+        return (
+            <div className={classes}>
+                <div className="loginWrapper">
+                    <form>
+                        <img src={loginTextImg} alt="login text"/>
+                        <input type="email"
+                               id="user-email"
+                               name="user-email"
+                               placeholder="Email"/>
+                        <input type="password"
+                               id="user-password"
+                               name="user-password"
+                               placeholder="Password"/>
+                        <p>.</p>
+                        <button className="formButton">Login</button>
+                        <p>New to the game?</p>
+                        <button id="loginFormSwitcher"
+                                className="formButton"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    doorSound();
+                                    this.props.setRegistration(e.currentTarget);
+                                }}>Register
+                        </button>
+                    </form>
                 </div>
-            );
-        } return (<div/>);
+            </div>
+        );
     }
 }
 

@@ -34,9 +34,10 @@ class MainMenu extends Component {
     render() {
         // Possible elements:
         const startButton = <StartButton visible={this.state.startButtonVisible}
-                                         fadeInFormContainer={this.fadeInFormContainer}
+                                         initAuth={this.fadeInFormContainer}
                                          fadeOut={this.state.startButtonFadeOut}/>
-        const formContainer = <FormContainer visible={this.state.formContainerVisible}/>
+        const formContainer = <FormContainer visible={this.state.formContainerVisible}
+                                             activeElement="mainButtons"/>
         // Finalize output:
         let output = this.state.startButtonVisible ? startButton : formContainer;
         // Render:

@@ -37,7 +37,7 @@ class StartButton extends Component {
                  onMouseEnter={r2D2_2}
                  onClick={() => {
                      this.pressSound();
-                     this.props.fadeInFormContainer();
+                     this.props.initAuth();
                  }}/>
         );
     }
