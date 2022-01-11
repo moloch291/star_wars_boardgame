@@ -12,11 +12,22 @@ const pool = new Pool({
 module.exports.registrationQuery = async function (newUsername, newEmail, newPassword) {
     try {
         await pool.query(
-            "INSERT INTO profile (username, email, password) VALUES ($1, $2, $3)",
+            "INSERT INTO profile (username, email, password) VALUES ($1, $2, $3);",
             [newUsername, newEmail, newPassword]
         );
         return "Success!";
     } catch (error) {
         return error;
     }
-}
+};
+
+module.exports.loginQuery = async function (idToSearch) {
+    try {
+        await pool.query(
+            "SELECT * FROM profile WHERE id = $1;", [idToSearch]
+        )
+        return "Success!"
+    } catch (error) {
+        return error;
+    }
+};
