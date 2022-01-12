@@ -34,8 +34,6 @@ app.post("/registration", async (req, res) => {
 );
 
 app.get("/user/:id", async (req, res) => {
-    const userId = req.params.id;
-    console.log(userId);
-    const userData = await pool.loginQuery(userId);
+    const userData = await pool.queryUserData(req.params.id);
     res.json(userData["rows"][0]);
 });

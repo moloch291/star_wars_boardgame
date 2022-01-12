@@ -12,7 +12,7 @@ const pool = new Pool({
 module.exports.registrationQuery = async function (newUsername, newEmail, newPassword) {
     try {
         await pool.query(
-            "INSERT INTO profile (username, email, password) VALUES ($1, $2, $3);",
+            "INSERT INTO profile (username, email, password, side_id) VALUES ($1, $2, $3, 0);",
             [newUsername, newEmail, newPassword]
         );
         return "Success!";
@@ -21,9 +21,12 @@ module.exports.registrationQuery = async function (newUsername, newEmail, newPas
     }
 };
 
-module.exports.loginQuery = async function (idToSearch) {
+module.exports.queryUserData = async function (idToSearch) {
     try {
-        return await pool.query("SELECT * FROM profile WHERE id = $1;", [idToSearch]);
+        return await pool.query(
+            "SELECT * FROM profile WHERE id = $1;",
+            [idToSearch]
+        );
     } catch (error) {
         return error;
     }
