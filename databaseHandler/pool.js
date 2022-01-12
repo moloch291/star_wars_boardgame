@@ -1,12 +1,12 @@
 require('dotenv').config();
-
+console.log()
 const Pool = require("pg").Pool;
 const pool = new Pool({
-    user: process.env.DB_USERNAME,
-    password: process.env.PASSWORD,
-    database: process.env.DB_NAME,
-    host: process.env.HOST_NAME,
-    port: process.env.PORT
+    user: process.env.PSQL_USERNAME,
+    password: process.env.PSQL_PASSWORD,
+    database: process.env.PSQL_DB_NAME,
+    host: process.env.PSQL_HOST,
+    port: process.env.PSQL_PORT
 });
 
 module.exports.registrationQuery = async function (newUsername, newEmail, newPassword) {
@@ -23,10 +23,7 @@ module.exports.registrationQuery = async function (newUsername, newEmail, newPas
 
 module.exports.loginQuery = async function (idToSearch) {
     try {
-        await pool.query(
-            "SELECT * FROM profile WHERE id = $1;", [idToSearch]
-        )
-        return "Success!"
+        return await pool.query("SELECT * FROM profile WHERE id = $1;", [idToSearch]);
     } catch (error) {
         return error;
     }

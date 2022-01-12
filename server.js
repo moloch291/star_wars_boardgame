@@ -1,8 +1,9 @@
 const pool = require("./databaseHandler/pool");
 const express = require('express');
-const path = require("path");
+require("path");
 const port = 8000;
 const bodyParser = require('body-parser');
+const {json} = require("express");
 // Init app:
 const app = express();
 app.use(express.json());
@@ -30,4 +31,11 @@ app.post("/registration", async (req, res) => {
             });
         }
     }
-)
+);
+
+app.get("/user/:id", async (req, res) => {
+    const userId = req.params.id;
+    console.log(userId);
+    const userData = await pool.loginQuery(userId);
+    res.json(userData["rows"][0]);
+});
