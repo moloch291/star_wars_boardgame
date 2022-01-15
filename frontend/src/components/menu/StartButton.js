@@ -12,6 +12,7 @@ const StartButton = ({initAuth}) => {
     return (
         <img src={startButtonImg}
              id="startButton"
+             className="fadeIn"
              alt="Press to start!"
              title="Click to start!"
              onMouseEnter={r2D2_2}
