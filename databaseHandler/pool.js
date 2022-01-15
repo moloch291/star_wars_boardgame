@@ -12,7 +12,7 @@ const pool = new Pool({
 module.exports.registrationQuery = async function (newUsername, newEmail, newPassword) {
     try {
         await pool.query(
-            "INSERT INTO profile (username, email, password, side_id) VALUES ($1, $2, $3, 0);",
+            "INSERT INTO profile (username, email, password, side_id) VALUES ($1, $2, $3, 1);",
             [newUsername, newEmail, newPassword]
         );
         return "Success!";

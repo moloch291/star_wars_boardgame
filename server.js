@@ -3,12 +3,17 @@ const express = require('express');
 require("path");
 const port = 8000;
 const bodyParser = require('body-parser');
-const {json} = require("express");
+const cors = require('cors');
 // Init app:
 const app = express();
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(bodyParser.json());
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 
 // Init:
 app.listen(port, () => {
