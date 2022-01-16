@@ -5,6 +5,10 @@ import {doorSound} from "../audio/AudioPlayer";
 
 const AuthenticationForm = ({initForm, switchForms}) => {
     const [activeForm, setActiveForm] = useState(initForm);
+    const [userName, setUsername] = useState("");
+    const [emailAddress, setEmailAddress] = useState("");
+    const [password1, setPassword1] = useState("");
+    const [password2, setPassword2] = useState("");
 
     const switching = () => {
         doorSound();
@@ -14,14 +18,10 @@ const AuthenticationForm = ({initForm, switchForms}) => {
         }, 500);
     };
 
-    const matchingPasswords = () => {
-        //Todo: This function will match form passwords...
-    };
-
     const submission = () => {
         let destination;
         let payload;
-        if (activeForm === "registration" && matchingPasswords()) {
+        if (activeForm === "registration" && password1 === password2) {
             destination = "http://localhost:8000/registration";
             // Dummy data:
             payload = {
@@ -32,12 +32,12 @@ const AuthenticationForm = ({initForm, switchForms}) => {
                 method: "POST",
                 body: JSON.stringify({
                     // Dummy data:
-                    username: "username",
-                    email: "email@address.com",
-                    password: "password"
+                    username: userName,
+                    email: emailAddress,
+                    password: password1
                 })
             };
-        } else {
+        } else if (activeForm === "login") {
             destination = "http://localhost:8000/login";
             // Dummy data:
             payload = {
@@ -48,10 +48,13 @@ const AuthenticationForm = ({initForm, switchForms}) => {
                 method: "POST",
                 body: JSON.stringify({
                     // Dummy data:
-                    email: "email@address.com",
-                    password: "password"
+                    email: emailAddress,
+                    password: password1
                 })
             };
+        } else {
+            alert("Passwords should match!");
+            return;
         }
         fetch(destination, payload).then(function(res) {console.log(res)});
     };
@@ -73,10 +76,7 @@ const AuthenticationForm = ({initForm, switchForms}) => {
                 <p>
                     {activeForm === "login" ? "New to the game?" : "Already have an account?"}
                 </p>
-                <button className="formButton"
-                        onClick={() => {
-                            switching()
-                        }}>
+                <button className="formButton" onClick={switching}>
                     {activeForm === "login" ? "Registration" : "Login"}
                 </button>
             </div>
