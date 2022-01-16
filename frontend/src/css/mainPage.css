@@ -16,7 +16,8 @@ body {
 
 #startButton {
     margin-top: 15%;
-    margin-left: 2%;
+    margin-left: auto;
+    margin-right: auto;
     height: 320px;
 }
 

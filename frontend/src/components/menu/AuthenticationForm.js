@@ -70,10 +70,7 @@ const AuthenticationForm = ({initForm, switchForms, loading}) => {
                 {activeForm === "registration" && <input type="password" id="user-password-again"
                                                          name="user-password-again" placeholder="Password again"/>}
                 <p>.</p>
-                <button className="formButton" onClick={() => {
-                    r2D2_3();
-                    loading();
-                }}>
+                <button className="formButton" onClick={() => {r2D2_3(); loading();}}>
                     {activeForm === "login" ? "Login" : "Registration"}
                 </button>
                 <p>

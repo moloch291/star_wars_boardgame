@@ -21,7 +21,7 @@ class AudioHandler extends Component {
 
     render() {
         return (
-            <div className="audio">
+            <div className="menuAudio">
                 <MenuTheme/>
                 <XWingEffect/>
                 <XWingFire/>

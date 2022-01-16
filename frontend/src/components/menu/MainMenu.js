@@ -25,18 +25,18 @@ const MainMenu = () => {
 
     const enterButtonsState = async () => {
         await fadeOut();
-        setTimeout(() => {
-            setStartingState(false);
-            setButtonState(true);
+        setTimeout(async () => {
+            await setStartingState(false);
+            await setButtonState(true);
             fadeIn();
         }, 500);
     };
 
     const enterFormState = async () => {
         await fadeOut();
-        setTimeout(() => {
-            setButtonState(false);
-            setFormState(true);
+        setTimeout(async () => {
+            await setButtonState(false);
+            await setFormState(true);
             fadeIn();
         }, 500);
     };
@@ -50,11 +50,11 @@ const MainMenu = () => {
 
     const enterLoadingState = async () => {
         await fadeOut();
-        setTimeout(() => {
-            setFormState(false);
-            setLoadingState(true);
+        setTimeout(async () => {
+            await setFormState(false);
+            await setLoadingState(true);
             fadeIn();
-        }, 500);
+        }, 600);
     };
 
     /*######################################################################################################################
