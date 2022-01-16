@@ -10,7 +10,7 @@ import AudioHandler from "../audio/AudioHandler";
 import '../../css/menu/forms.css';
 import '../../css/loader.css';
 import logo from "../../img/_swLogo2.png";
-import XWing from "./XWing";
+import Ships from "./Ships";
 
 
 const MainMenu = () => {
@@ -35,11 +35,13 @@ const MainMenu = () => {
 
     const enterFormState = async () => {
         await fadeOut();
-        setTimeout(async () => {
-            await setButtonState(false);
-            await setFormState(true);
-            fadeIn();
+        setTimeout(() => {
+            setButtonState(false);
+            setFormState(true);
         }, 500);
+        setTimeout(async () => {
+            fadeIn();
+        }, 600);
     };
 
     const switchForms = async () => {
@@ -87,7 +89,7 @@ const MainMenu = () => {
                     <AuthenticationForm initForm={initFormName} switchForms={switchForms} loading={enterLoadingState}/>}
                 {loadingState && <Loader/>}
             </div>
-            <XWing/>
+            <Ships/>
             <SocialMediaButtons/>
         </div>
     );
