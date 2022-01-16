@@ -41,6 +41,11 @@ export function r2D2_2() {
         r2D2_2.play();
 }
 
+export function r2D2_3() {
+        const r2D2_3 = document.querySelector(".r2D2-3");
+        r2D2_3.play();
+}
+
 export function lightSaberActivation_1() {
         const lightSaberActivation_1 = document.querySelector(".lightSaberSound1");
         lightSaberActivation_1.play();

@@ -1,13 +1,14 @@
-/* General menu body rules: */
+/* General main_menu body rules: */
 body {
     background-image: url("../img/_galaxyBackground_1.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     display: flex;
     height: 100vh;
     text-align: center;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .mainContainer {
@@ -16,7 +17,8 @@ body {
 
 #startButton {
     margin-top: 15%;
-    margin-left: 2%;
+    margin-left: auto;
+    margin-right: auto;
     height: 320px;
 }
 
@@ -36,10 +38,5 @@ body {
 .mainMenuHeader {
     position: center;
     margin-top: -20%;
-    height: 210px;
-}
-
-.mainMenuHeader img {
-    display: block;
-    height: 230px;
+    height: 250px;
 }
