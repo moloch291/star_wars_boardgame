@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef} from "react";
+import {useState} from "react";
 // components:
 import StartButton from "./StartButton"
 import SocialMediaButtons from "./SocialMediaButtons";
@@ -7,13 +7,12 @@ import AudioHandler from "../audio/AudioHandler";
 // Style:
 import '../../css/menu/forms.css';
 import MainButtons from "./MainButtons";
-import LoginForm from "./LoginForm";
 import AuthenticationForm from "./AuthenticationForm";
 
 const MainMenu = () => {
-    const [startButtonShown, setStartButtonShown] = useState(false);
+    const [startButtonShown, setStartButtonShown] = useState(true);
     const [mainButtonsShown, setMainButtonsShown] = useState(false);
-    const [formShown, setFormShown] = useState(true);
+    const [formShown, setFormShown] = useState(false);
     const [initFormState, setInitFormState] = useState("");
 
 /*######################################################################################################################
@@ -21,41 +20,56 @@ const MainMenu = () => {
 ######################################################################################################################*/
 
     const setButtonsState = async () => {
-        // Hiding StartButton:
-        await fadeOutElement("#startButton", setStartButtonShown);
-        setTimeout(
-            () => fadeInElement(".formContainer", setMainButtonsShown),
-            500
-        );
+        await fadeOut();
+        setTimeout(() => {
+            setStartButtonShown(false);
+            setMainButtonsShown(true);
+            fadeIn();
+        }, 500);
+    };
+
+    const setFormState = async () => {
+        await fadeOut();
+        setTimeout(() => {
+            setMainButtonsShown(false);
+            setFormShown(true);
+            fadeIn();
+        }, 500);
+    };
+
+    const switchForms = async () => {
+        await fadeOut();
+        setTimeout(() => {
+            fadeIn();
+        }, 500);
     };
 
 /*######################################################################################################################
     Faders:
 ######################################################################################################################*/
 
-    const fadeInElement = async (idOrClass, currentSetter) => {
-        await currentSetter(true);
-        setTimeout(
-            () => document.querySelector(idOrClass).classList.remove("fadeIn"),
-            501
-        );
+    const fadeOut = () => {
+        document.querySelector(".mainContainer").classList.add("fadeOut");
     };
 
-    const fadeOutElement = async (idOrClass, currentSetter) => {
-        const currentChild = document.querySelector(idOrClass);
-        if (currentChild.classList.contains("fadeIn"))
-            await currentChild.classList.remove("fadeIn");
-        currentChild.classList.add("fadeOut");
-        setTimeout(() => {currentSetter(false);}, 500);
+    const fadeIn = async () => {
+        const mainContainer = document.querySelector(".mainContainer");
+        mainContainer.classList.remove("fadeOut");
+        mainContainer.classList.add("fadeIn");
+        setTimeout(() => {
+            mainContainer.classList.remove("fadeIn");
+        }, 500);
     };
 
     return (
-        <div className="MainMenu">
+        <div className="mainMenu">
             <HeaderImage/>
             <div className="mainContainer">
                 {startButtonShown && <StartButton initAuth={setButtonsState}/>}
-                {mainButtonsShown && <MainButtons initFormState={setInitFormState}/>}
-                {formShown && <AuthenticationForm initForm ={initFormState}/>}
+                {mainButtonsShown && <MainButtons initFormState={setInitFormState}
+                                                  initForm={setFormState}/>}
+                {formShown && <AuthenticationForm initForm ={initFormState}
+                                                  switchForms={switchForms}/>}
             </div>
             <SocialMediaButtons/>
             <AudioHandler/>
