@@ -11,11 +11,11 @@
 .loginForm, .registrationForm {
     display: flex;
     position: absolute;
-    top: 70%;
+    top: 65%;
     left: 50%;
 }
 
-.loginForm .loginWrapper form img {
+.loginForm .loginWrapper img {
     width: 60%;
     margin: 10%;
 }
