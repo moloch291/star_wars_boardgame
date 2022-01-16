@@ -36,10 +36,5 @@ body {
 .mainMenuHeader {
     position: center;
     margin-top: -20%;
-    height: 210px;
-}
-
-.mainMenuHeader img {
-    display: block;
-    height: 230px;
+    height: 250px;
 }

@@ -1,38 +1,42 @@
-import {useState} from "react";
+import React, {useState} from "react";
 // components:
 import StartButton from "./StartButton"
+import MainButtons from "./MainButtons";
+import AuthenticationForm from "./AuthenticationForm";
+import Loader from "./Loader";
 import SocialMediaButtons from "./SocialMediaButtons";
-import HeaderImage from "./HeaderImage.js";
 import AudioHandler from "../audio/AudioHandler";
 // Style:
 import '../../css/menu/forms.css';
-import MainButtons from "./MainButtons";
-import AuthenticationForm from "./AuthenticationForm";
+import '../../css/loader.css';
+import logo from "../../img/_swLogo2.png";
+
 
 const MainMenu = () => {
-    const [startButtonShown, setStartButtonShown] = useState(true);
-    const [mainButtonsShown, setMainButtonsShown] = useState(false);
-    const [formShown, setFormShown] = useState(false);
-    const [initFormState, setInitFormState] = useState("");
+    const [startingState, setStartingState] = useState(true);
+    const [buttonState, setButtonState] = useState(false);
+    const [formState, setFormState] = useState(false);
+    const [loadingState, setLoadingState] = useState(false);
+    const [initFormName, setInitFormName] = useState("");
 
-/*######################################################################################################################
-    State setters::
-######################################################################################################################*/
+    /*######################################################################################################################
+        States:
+    ######################################################################################################################*/
 
-    const setButtonsState = async () => {
+    const enterButtonsState = async () => {
         await fadeOut();
         setTimeout(() => {
-            setStartButtonShown(false);
-            setMainButtonsShown(true);
+            setStartingState(false);
+            setButtonState(true);
             fadeIn();
         }, 500);
     };
 
-    const setFormState = async () => {
+    const enterFormState = async () => {
         await fadeOut();
         setTimeout(() => {
-            setMainButtonsShown(false);
-            setFormShown(true);
+            setButtonState(false);
+            setFormState(true);
             fadeIn();
         }, 500);
     };
@@ -44,9 +48,18 @@ const MainMenu = () => {
         }, 500);
     };
 
-/*######################################################################################################################
-    Faders:
-######################################################################################################################*/
+    const enterLoadingState = async () => {
+        await fadeOut();
+        setTimeout(() => {
+            setFormState(false);
+            setLoadingState(true);
+            fadeIn();
+        }, 500);
+    };
+
+    /*######################################################################################################################
+        Faders:
+    ######################################################################################################################*/
 
     const fadeOut = () => {
         document.querySelector(".mainContainer").classList.add("fadeOut");
@@ -61,15 +74,17 @@ const MainMenu = () => {
         }, 500);
     };
 
+//######################################################################################################################
+
     return (
         <div className="mainMenu">
-            <HeaderImage/>
+            <img src={logo} className="mainMenuHeader" alt="logo"/>
             <div className="mainContainer">
-                {startButtonShown && <StartButton initAuth={setButtonsState}/>}
-                {mainButtonsShown && <MainButtons initFormState={setInitFormState}
-                                                  initForm={setFormState}/>}
-                {formShown && <AuthenticationForm initForm ={initFormState}
-                                                  switchForms={switchForms}/>}
+                {startingState && <StartButton initAuth={enterButtonsState}/>}
+                {buttonState && <MainButtons initFormState={setInitFormName} initForm={enterFormState}/>}
+                {formState &&
+                    <AuthenticationForm initForm={initFormName} switchForms={switchForms} loading={enterLoadingState}/>}
+                {loadingState && <Loader/>}
             </div>
             <SocialMediaButtons/>
             <AudioHandler/>

@@ -1,9 +1,9 @@
 import {useEffect, useRef, useState} from "react";
 import registrationFormTextImg from "../../img/textImages/text_register.png";
 import loginTextImg from "../../img/textImages/text_login.png";
-import {doorSound} from "../audio/AudioPlayer";
+import {doorSound, r2D2_3} from "../audio/AudioPlayer";
 
-const AuthenticationForm = ({initForm, switchForms}) => {
+const AuthenticationForm = ({initForm, switchForms, loading}) => {
     const [activeForm, setActiveForm] = useState(initForm);
     const [userName, setUsername] = useState("");
     const [emailAddress, setEmailAddress] = useState("");
@@ -70,7 +70,10 @@ const AuthenticationForm = ({initForm, switchForms}) => {
                 {activeForm === "registration" && <input type="password" id="user-password-again"
                                                          name="user-password-again" placeholder="Password again"/>}
                 <p>.</p>
-                <button className="formButton" onClick={submission}>
+                <button className="formButton" onClick={() => {
+                    r2D2_3();
+                    loading();
+                }}>
                     {activeForm === "login" ? "Login" : "Registration"}
                 </button>
                 <p>

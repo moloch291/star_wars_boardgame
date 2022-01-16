@@ -1,4 +1,4 @@
-import '../../css/mainButtons.css';
+import '../../css/menu/mainButtons.css';
 
 import lightLoginTextImg from "../../img/textImages/text-loginLight.png"
 import lightRegisterTextImg from "../../img/textImages/text_registerLight.png"
