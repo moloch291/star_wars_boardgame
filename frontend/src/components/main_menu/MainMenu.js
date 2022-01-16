@@ -27,7 +27,7 @@ const MainMenu = () => {
     const enterButtonsState = async () => {
         await fadeOut();
         setTimeout(async () => {
-            await setStartingState(false);
+            setStartingState(false);
             await setButtonState(true);
             fadeIn();
         }, 500);
@@ -54,10 +54,10 @@ const MainMenu = () => {
     const enterLoadingState = async () => {
         await fadeOut();
         setTimeout(async () => {
-            await setFormState(false);
+            setFormState(false);
             await setLoadingState(true);
             fadeIn();
-        }, 600);
+        }, 700);
     };
 
     /*######################################################################################################################
