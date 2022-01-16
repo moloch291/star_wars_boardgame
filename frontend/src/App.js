@@ -4,7 +4,7 @@ import './css/menu/socialMediaButtons.css';
 import './css/fadeEffects.css';
 // Components:
 import AudioHandler from "./components/audio/AudioHandler";
-import MainMenu from "./components/menu/MainMenu";
+import MainMenu from "./components/main_menu/MainMenu";
 
 
 function App() {

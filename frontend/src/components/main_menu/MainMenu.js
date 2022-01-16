@@ -10,6 +10,7 @@ import AudioHandler from "../audio/AudioHandler";
 import '../../css/menu/forms.css';
 import '../../css/loader.css';
 import logo from "../../img/_swLogo2.png";
+import XWing from "./XWing";
 
 
 const MainMenu = () => {
@@ -86,8 +87,8 @@ const MainMenu = () => {
                     <AuthenticationForm initForm={initFormName} switchForms={switchForms} loading={enterLoadingState}/>}
                 {loadingState && <Loader/>}
             </div>
+            <XWing/>
             <SocialMediaButtons/>
-            <AudioHandler/>
         </div>
     );
 }

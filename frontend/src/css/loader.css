@@ -19,10 +19,16 @@
     bottom: -40%;
     /* Animation: */
     filter: blur(2px);
-    animation: spin 1.8s linear infinite;
+    animation: spin 1.8s linear infinite, blink 2s linear infinite;
 }
 
 @keyframes spin {
     0% {transform: rotate(0deg);}
     100% { transform: rotate(360deg); }
+}
+
+@keyframes blink {
+    0% {opacity: 0.2;}
+    50% {opacity: 1;}
+    100% {opacity: 0.2;}
 }

@@ -1,13 +1,14 @@
-/* General menu body rules: */
+/* General main_menu body rules: */
 body {
     background-image: url("../img/_galaxyBackground_1.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     display: flex;
     height: 100vh;
     text-align: center;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
 .mainContainer {

@@ -42,7 +42,7 @@ class AudioHandler extends Component {
     }
 }
 
-// Hover and click sound effects in menu:
+// Hover and click sound effects in main_menu:
 function DoorOpenSound() {
     return (
         <audio className="doorOpen">
@@ -155,7 +155,7 @@ function XWingFire() {
     </audio>
 }
 
-// Music in menu:
+// Music in main_menu:
 function MenuTheme() {
     return (
         <audio className="mainTheme">
