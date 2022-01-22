@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. install_kubectl.sh
+. ./install_kubectl.sh
 
 main() {
     echo "Building dependecies..."
