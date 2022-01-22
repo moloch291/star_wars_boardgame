@@ -24,38 +24,38 @@ const MainMenu = () => {
         States:
     ######################################################################################################################*/
 
-    const enterButtonsState = async () => {
-        await fadeOut();
-        setTimeout(async () => {
+    const enterButtonsState = () => {
+        fadeOut();
+        setTimeout(() => {
             setStartingState(false);
-            await setButtonState(true);
+            setButtonState(true);
             fadeIn();
         }, 500);
     };
 
-    const enterFormState = async () => {
-        await fadeOut();
+    const enterFormState = () => {
+        fadeOut();
         setTimeout(() => {
             setButtonState(false);
             setFormState(true);
         }, 500);
-        setTimeout(async () => {
+        setTimeout(() => {
             fadeIn();
         }, 600);
     };
 
-    const switchForms = async () => {
-        await fadeOut();
+    const switchForms = () => {
+        fadeOut();
         setTimeout(() => {
             fadeIn();
         }, 500);
     };
 
-    const enterLoadingState = async () => {
-        await fadeOut();
-        setTimeout(async () => {
+    const enterLoadingState = () => {
+        fadeOut();
+        setTimeout(() => {
             setFormState(false);
-            await setLoadingState(true);
+            setLoadingState(true);
             fadeIn();
         }, 700);
     };
@@ -68,7 +68,7 @@ const MainMenu = () => {
         document.querySelector(".mainContainer").classList.add("fadeOut");
     };
 
-    const fadeIn = async () => {
+    const fadeIn = () => {
         const mainContainer = document.querySelector(".mainContainer");
         mainContainer.classList.remove("fadeOut");
         mainContainer.classList.add("fadeIn");
