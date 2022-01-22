@@ -9,9 +9,6 @@ handle_kubectl() {
         echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list
         apt-get update
         apt-get install -y kubectl
-    else
-        echo "kubectl already installed..."
-        kubectl cluster-info
     fi
 }
 
