@@ -2,8 +2,7 @@
 
 handle_minikube() {
     local VERSION=$(minikube version)
-    echo "$VERSION"
-    if [ "$VERSION" == "4: minikube: not found" ]; then
+    if [ $? -ne 0 ]; then
         apt-get install apt-transport-https
         apt install virtualbox virtualbox-ext-pack
         wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
