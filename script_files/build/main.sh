@@ -3,6 +3,7 @@
 handle_kubectl() {
     kubectl version --client
     if [ $? -ne 0 ]; then
+        echo "Installing kubectl..."
         apt-get update
         apt-get install -y apt-transport-https ca-certificates curl
         curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
