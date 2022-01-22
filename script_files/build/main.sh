@@ -1,7 +1,5 @@
 main() {
-    apt-get update
-    cd ../app
-    git pull
+    echo "Scrips are up and running..."
 }
 
 main
