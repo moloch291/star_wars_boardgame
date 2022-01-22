@@ -14,6 +14,7 @@ handle_minikube() {
     else
         echo "* minikube already installed, skipping this step... *"
         echo "$VERSION"
+    fi
 
 }
 
