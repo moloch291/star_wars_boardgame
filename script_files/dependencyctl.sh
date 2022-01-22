@@ -2,6 +2,7 @@
 
 handle_minikube() {
     local VERSION=$(minikube version)
+    echo "$VERSION"
     if [ $? -ne 0 ]; then
         echo "Will install minikube..."
         apt-get install apt-transport-https
