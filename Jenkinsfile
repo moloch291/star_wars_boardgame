@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "sh ./script_files/build/main.sh"
+                sh "sh ./script_files/main.sh"
             }
         }
         stage('Test') {
