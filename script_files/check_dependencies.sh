@@ -3,8 +3,7 @@
 handle_minikube() {
     local VERSION=$(minikube version)
     echo "$VERSION"
-    if [ $? -ne 0 ]; then
-        echo "Will install minikube..."
+    if [ "$VERSION" -eq "" ]; then
         apt-get install apt-transport-https
         apt install virtualbox virtualbox-ext-pack
         wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
@@ -13,7 +12,7 @@ handle_minikube() {
         echo "Minikube installed!"
         minikube version
     else
-        echo "* minikube already installed, skipping this step... *"
+        echo "* 'minikube' already installed, skipping this step... *"
         echo "$VERSION"
     fi
 
@@ -30,7 +29,7 @@ handle_kubectl() {
         apt-get install -y kubectl
         kubectl version --client
     else
-        echo "* kubectl already installed! skipping this step... *"
+        echo "* 'kubectl' already installed! skipping this step... *"
         echo "$VERSION"
     fi
 }

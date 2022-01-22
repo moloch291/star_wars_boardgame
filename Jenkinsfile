@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh "sh ./script_files/dependencyctl.sh"
+                sh "sh ./script_files/check_dependecies.sh"
             }
         }
         stage('Test') {
