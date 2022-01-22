@@ -1,4 +1,7 @@
 #!/bin/bash
+handle_minikube() {
+    echo "Will install minikube..."
+}
 
 handle_kubectl() {
     kubectl version --client
