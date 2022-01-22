@@ -1,8 +1,9 @@
 #!/bin/bash
 
 main() {
+    apt update
     echo "Building dependecies..."
-    ./install_kubectl.sh
+    sh ./install_kubectl.sh
 }
 
 main
