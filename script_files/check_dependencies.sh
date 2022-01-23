@@ -3,6 +3,8 @@
 handle_minikube() {
     minikube version
     if [ $? -ne 0 ]; then
+        apt-get update -y
+        apt-get upgrade -y
         apt-get install apt-transport-https
         apt install virtualbox virtualbox-ext-pack
         wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
@@ -27,7 +29,6 @@ handle_kubectl() {
         apt-get update
         apt-get install -y kubectl
         echo "kubectl installed!"
-        kubectl version --client
     else
         echo "* 'kubectl' already installed! skipping this step... *"
         echo "$(kubectl version --client)"
