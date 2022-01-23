@@ -60,7 +60,6 @@ main() {
     handle_kubectl
     STEP=$(( $STEP + 1 ))
     echo "*** STEP $STEP: ***"
-    kubectl cluster-info
 }
 
 main
