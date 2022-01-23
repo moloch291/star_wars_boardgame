@@ -4,7 +4,7 @@ kubectl_install_process() {
     apt-get update
     apt-get install -y apt-transport-https ca-certificates curl
     curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-    echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+    echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | tee /etc/apt/sources.list.d/kubernetes.list
     apt-get update
     apt-get install -y kubectl
 }
@@ -30,8 +30,7 @@ handle_minikube() {
             echo "Installation was unsuccessful..."
         fi
     else
-        echo "* 'minikube' already installed, skipping this step... *"
-        echo "$(minikube version)"
+        echo "*** 'minikube' already installed, skipping this step... ***"
     fi
 
 }
@@ -47,7 +46,7 @@ handle_kubectl() {
             echo "Installation was unsuccessful..."
         fi
     else
-        echo "* 'kubectl' already installed! skipping this step... *"
+        echo "*** 'kubectl' already installed! skipping this step... ***"
     fi
 }
 
