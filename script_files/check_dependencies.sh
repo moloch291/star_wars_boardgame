@@ -52,9 +52,14 @@ handle_kubectl() {
 }
 
 main() {
+    STEP=1
     echo "Building dependecies..."
+    echo "*** STEP '$STEP': ***"
     handle_minikube
+    STEP=$(( $STEP + 1 ))
+    echo "*** STEP '$STEP': ***"
     handle_kubectl
+    STEP=$(( $STEP + 1 ))
 }
 
 main
