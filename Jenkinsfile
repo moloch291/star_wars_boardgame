@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh "sh ./script_files/check_dependencies.sh"
-                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'awsAccesKey', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'awsAccessKey', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     AWS("sts get-caller-identity")
                 }
             }

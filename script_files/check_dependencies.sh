@@ -35,7 +35,7 @@ handle_aws_cli() {
             echo "Installation was unsuccessful..."
         fi
     else
-        echo "*** AWS CLI already installed, skipping this step... ***"
+        echo "AWS CLI already installed, skipping this step..."
     fi
 
 }
@@ -51,7 +51,7 @@ handle_kubectl() {
             echo "Installation was unsuccessful..."
         fi
     else
-        echo "*** 'kubectl' already installed! skipping this step... ***"
+        echo "'kubectl' already installed! skipping this step..."
     fi
 }
 
