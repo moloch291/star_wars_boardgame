@@ -72,7 +72,7 @@ handle_eks_ctl() {
             echo "Installation was unsuccessful..."
         fi
     else
-        "'eksctl' already installed! skipping this step..."
+        echo "'eksctl' already installed! skipping this step..."
     fi
 }
 
