@@ -13,6 +13,7 @@ main() {
     build_image
     tag_and_push
     docker rmi sw-boardgame:latest
+    docker rmi 872533758794.dkr.ecr.eu-central-1.amazonaws.com/sw-boardgame
 }
 
 main
