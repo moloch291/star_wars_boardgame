@@ -5,8 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 sh "sh ./script_files/check_dependencies.sh"
-                withKubeConfig([credentialsId: 'kube-config', serverUrl: '192.168.49.2']) {
-                    sh 'kubectl cluster-info'
+                withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'awsAccesKey', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                    AWS("sts get-caller-identity")
                 }
             }
         }
