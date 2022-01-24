@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh "sh ./script_files/check_dependencies.sh"
-                withKubeConfig([credentialsId: 'kube-config']) {
+                withKubeConfig([credentialsId: 'kube-config', serverUrl: '192.168.49.2']) {
                     sh 'kubectl cluster-info'
                 }
             }
