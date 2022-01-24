@@ -1,5 +1,13 @@
 #!/bin/bash
 
+zip_install_process() {
+    zip --version
+    if [ $? -ne 0 ]; then
+        apt-get update
+        apt-get install zip unzip
+    fi
+}
+
 kubectl_install_process() {
     apt-get update
     apt-get install -y apt-transport-https ca-certificates curl
@@ -9,28 +17,25 @@ kubectl_install_process() {
     apt-get install -y kubectl
 }
 
-minikube_install_process() {
-    apt-get update -y
-    apt-get install apt-transport-https
-    apt-get upgrade -y
-    apt install Virtualbox virtualbox-ext-pack
-    wget https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-    cp minikube-linux-amd64 /usr/local/bin/minikube
-    chmod 755 /usr/local/bin/minikube
+aws_cli_install_process() {
+    zip_install_process
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    unzip awscliv2.zip
+    ./aws/install
 }
 
-handle_minikube() {
-    minikube version
+handle_aws_cli() {
+    aws --version
     if [ $? -ne 0 ]; then
-        minikube_install_process
+        aws_cli_install_process
         if [ $? -eq 0 ]; then
-            echo "minikube installed!"
-            minikube version
+            echo "AWS CLI installed!"
+            aws --version
         else
             echo "Installation was unsuccessful..."
         fi
     else
-        echo "*** 'minikube' already installed, skipping this step... ***"
+        echo "*** AWS CLI already installed, skipping this step... ***"
     fi
 
 }
@@ -54,7 +59,7 @@ main() {
     STEP=1
     echo "Building dependecies..."
     echo "*** STEP $STEP: ***"
-    handle_minikube
+    handle_aws_cli
     STEP=$(( $STEP + 1 ))
     echo "*** STEP $STEP: ***"
     handle_kubectl
