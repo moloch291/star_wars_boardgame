@@ -87,6 +87,7 @@ main() {
     STEP=$(( $STEP + 1 ))
     echo "*** STEP $STEP: ***"
     handle_eks_ctl
+    echo "*** All dependecies are ready! ***"
 }
 
 main
