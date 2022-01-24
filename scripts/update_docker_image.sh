@@ -4,15 +4,15 @@ tag_and_push() {
 }
 
 build_image() {
-    cd ../frontend
+    cd ./frontend
     docker build -t sw-boardgame .
     cd ..
 }
 
 main() {
-    docker rmi sw-boardgame:latest
     build_image
     tag_and_push
+    docker rmi sw-boardgame:latest
 }
 
 main
