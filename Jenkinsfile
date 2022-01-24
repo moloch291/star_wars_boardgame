@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sh "sh ./script_files/check_dependencies.sh"
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'awsAccessKey', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
-                    AWS("sts get-caller-identity")
+                    AWS(" sts get-caller-identity")
                 }
             }
         }
