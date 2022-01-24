@@ -24,6 +24,12 @@ aws_cli_install_process() {
     ./aws/install
 }
 
+eksctl_install_process() {
+    apt-get update
+    curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
+    mv /tmp/eksctl /usr/local/bin
+}
+
 handle_aws_cli() {
     aws --version
     if [ $? -ne 0 ]; then
@@ -55,9 +61,24 @@ handle_kubectl() {
     fi
 }
 
+handle_eks_ctl() {
+    eksctl version
+    if [ $? -ne 0 ]; then
+        eksctl_install_process
+        if [ $? -ne 0 ]; then
+            echo "eksctl installed!"
+            eksctl version
+        else
+            echo "Installation was unsuccessful..."
+        fi
+    else
+        "'eksctl' already installed! skipping this step..."
+    fi
+}
+
 main() {
     STEP=1
-    echo "Building dependecies..."
+    echo -e "Building dependecies...\n"
     echo "*** STEP $STEP: ***"
     handle_aws_cli
     STEP=$(( $STEP + 1 ))
@@ -65,6 +86,7 @@ main() {
     handle_kubectl
     STEP=$(( $STEP + 1 ))
     echo "*** STEP $STEP: ***"
+    handle_eks_ctl
 }
 
 main
