@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.swBoardgame.deploymentName }}
+  labels:
+    app: {{ .Values.swBoardgame.appName }}
+spec:
+  replicas: {{ .Values.swBoardgame.replicaNumber }}
+  selector:
+    matchLabels:
+      app: {{ .Values.swBoardgame.appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.swBoardgame.appName }}
+    spec:
+      containers:
+        - name: {{ .Values.swBoardgame.appName }}
+          image: {{ .Values.swBoardgame.image }}
+          ports:
+            - containerPort: {{ .Values.swBoardgame.containerPort }}
