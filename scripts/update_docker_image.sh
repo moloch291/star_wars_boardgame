@@ -1,6 +1,6 @@
 tag_and_push() {
-    docker tag sw-boardgame:latest 872533758794.dkr.ecr.eu-central-1.amazonaws.com/sw-boardgame:latest
-    docker push 872533758794.dkr.ecr.eu-central-1.amazonaws.com/sw-boardgame:latest
+    docker tag sw-boardgame:0.1.0 872533758794.dkr.ecr.eu-central-1.amazonaws.com/sw-boardgame:0.1.0
+    docker push 872533758794.dkr.ecr.eu-central-1.amazonaws.com/sw-boardgame:0.1.0
 }
 
 build_image() {
@@ -12,7 +12,7 @@ build_image() {
 main() {
     build_image
     tag_and_push
-    docker rmi sw-boardgame:latest
+    docker rmi sw-boardgame:0.1.0
     docker rmi 872533758794.dkr.ecr.eu-central-1.amazonaws.com/sw-boardgame
 }
 
