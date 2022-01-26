@@ -61,7 +61,7 @@ const MainMenu = () => {
     };
 
     const clickMethod = () => {
-        alert("Upgraded to new version!");
+        alert("Will to new version!");
     };
 
     /*######################################################################################################################
@@ -87,7 +87,7 @@ const MainMenu = () => {
         <div className="mainMenu">
             <img src={logo} className="mainMenuHeader" alt="logo"/>
             <div className="mainContainer">
-                {startingState && <StartButton initAuth={enterButtonsState} alerFunc={clickMethod}/>}
+                {startingState && <StartButton initAuth={enterButtonsState} alertFunc={clickMethod}/>}
                 {buttonState && <MainButtons initFormState={setInitFormName} initForm={enterFormState}/>}
                 {formState &&
                     <AuthenticationForm initForm={initFormName} switchForms={switchForms} loading={enterLoadingState}/>}
