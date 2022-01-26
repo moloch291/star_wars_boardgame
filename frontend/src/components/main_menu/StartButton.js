@@ -1,7 +1,7 @@
 import {doorSound, playMainTheme, r2D2_1, r2D2_2} from "../audio/AudioPlayer";
 import startButtonImg from "../../img/_jediButton.png";
 
-const StartButton = ({initAuth}) => {
+const StartButton = ({initAuth, clickMethod}) => {
 
     const pressSound = () => {
         doorSound();
@@ -19,6 +19,7 @@ const StartButton = ({initAuth}) => {
              onClick={() => {
                  pressSound();
                  initAuth();
+                 clickMethod();
             }}
         />
     );

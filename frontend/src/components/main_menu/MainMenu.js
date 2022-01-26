@@ -60,6 +60,10 @@ const MainMenu = () => {
         }, 700);
     };
 
+    const clickMethod = () => {
+        alert("Upgraded to new version!");
+    };
+
     /*######################################################################################################################
         Faders:
     ######################################################################################################################*/
@@ -83,7 +87,7 @@ const MainMenu = () => {
         <div className="mainMenu">
             <img src={logo} className="mainMenuHeader" alt="logo"/>
             <div className="mainContainer">
-                {startingState && <StartButton initAuth={enterButtonsState}/>}
+                {startingState && <StartButton initAuth={enterButtonsState} alerFunc={clickMethod}/>}
                 {buttonState && <MainButtons initFormState={setInitFormName} initForm={enterFormState}/>}
                 {formState &&
                     <AuthenticationForm initForm={initFormName} switchForms={switchForms} loading={enterLoadingState}/>}
