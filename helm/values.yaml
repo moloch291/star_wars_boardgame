@@ -5,4 +5,4 @@ swBoardgame:
   replicaNumber: 1
   containerPort: 80
   image: 872533758794.dkr.ecr.eu-central-1.amazonaws.com/sw-boardgame:latest
-  version: 0.3.0
+  version: 0.4.0

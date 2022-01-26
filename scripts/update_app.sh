@@ -13,7 +13,6 @@ redeploy() {
 }
 
 main() {
-    delete_previous_version
     redeploy
     describe_details
 }
