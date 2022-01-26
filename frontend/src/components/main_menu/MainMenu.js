@@ -44,24 +44,24 @@ const MainMenu = () => {
         }, 600);
     };
 
-    const switchForms = async () => {
-        await fadeOut();
+    const switchForms = () => {
+        fadeOut();
         setTimeout(() => {
             fadeIn();
         }, 500);
     };
 
-    const enterLoadingState = async () => {
-        await fadeOut();
+    const enterLoadingState = () => {
+        fadeOut();
         setTimeout(async () => {
             setFormState(false);
-            await setLoadingState(true);
+            setLoadingState(true);
             fadeIn();
         }, 700);
     };
 
     const clickMethod = () => {
-        alert("Will to new version!");
+        alert("Will upgrade to new version!");
     };
 
     /*######################################################################################################################
