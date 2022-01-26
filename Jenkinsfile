@@ -24,7 +24,7 @@ pipeline {
             steps {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'awsAccessKey', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
                     sh "aws eks update-kubeconfig --region eu-central-1 --name sw-bg-cluster-YxcyrMjN"
-                    sh "sh ./scripts/deploy_app.sh"
+                    sh "sh ./scripts/update_app.sh"
                 }
             }
         }
