@@ -5,14 +5,14 @@ tag_and_push() {
 
 build_image() {
     cd ./frontend
-    docker build -t sw-boardgame .
+    docker build -t sw-boardgame:0.1.0 .
     cd ..
 }
 
 main() {
     build_image
     tag_and_push
-    docker rmi sw-boardgame:0.1.0
+    docker rmi sw-boardgame:latest
     docker rmi 872533758794.dkr.ecr.eu-central-1.amazonaws.com/sw-boardgame
 }
 
