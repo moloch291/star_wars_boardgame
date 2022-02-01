@@ -1,15 +1,16 @@
+// React:
 import React, {useState} from "react";
-// components:
-import StartButton from "./StartButton"
-import MainButtons from "./MainButtons";
-import AuthenticationForm from "./authentication_form/AuthenticationForm";
-import Loader from "./Loader";
-import SocialMediaButtons from "./SocialMediaButtons";
 // Style:
 import '../../css/menu/forms.css';
 import '../../css/loader.css';
 import logo from "../../img/_swLogo2.png";
 import Ships from "./Ships";
+// Child components:
+import StartButton from "./StartButton"
+import MainButtons from "./MainButtons";
+import AuthenticationForm from "./authentication_form/AuthenticationForm";
+import Loader from "./Loader";
+import SocialMediaButtons from "./SocialMediaButtons";
 
 
 const MainMenu = () => {
@@ -34,11 +35,6 @@ const MainMenu = () => {
         await fadeOut();
         setButtonState(false);
         setFormState(true);
-        fadeIn();
-    };
-
-    const justFade = async () => {
-        await fadeOut();
         fadeIn();
     };
 
@@ -89,8 +85,8 @@ const MainMenu = () => {
             <div className="mainContainer">
                 {startingState && <StartButton initAuth={enterButtonsState}/>}
                 {buttonState && <MainButtons initFormState={setInitFormName} initForm={enterFormState}/>}
-                {formState &&
-                    <AuthenticationForm initForm={initFormName} loading={enterLoadingState}/>}
+                {formState && <AuthenticationForm initForm={initFormName} loading={enterLoadingState}
+                                                  hide={fadeOut} show={fadeIn}/>}
                 {loadingState && <Loader/>}
             </div>
             <Ships/>

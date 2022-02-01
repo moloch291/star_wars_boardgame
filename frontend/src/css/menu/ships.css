@@ -12,7 +12,7 @@
     /* Animation: */
     animation-name: fly-cycle;
     animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 2;
     animation-duration: 10s;
     animation-delay: 1s;
 }
@@ -33,7 +33,7 @@
     animation-fill-mode: forwards;
     animation-timing-function: linear;
     animation-iteration-count: 1;
-    animation-duration: 60s;
+    animation-duration: 80s;
     animation-delay: 3s;
 }
 
