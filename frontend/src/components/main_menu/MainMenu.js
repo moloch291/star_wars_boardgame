@@ -15,9 +15,11 @@ import SocialMediaButtons from "./SocialMediaButtons";
 
 const MainMenu = () => {
 
-    const [activeForm, setActiveForm] = useState("starting");
+    const [activeState, setActiveState] = useState("starting");
     const [initFormName, setInitFormName] = useState("");
     const [userData, setUserData] = useState(null);
+
+/*####################################################################################################################*/
 
     const getUserData = (newUserData) => {
         setUserData(newUserData);
@@ -61,13 +63,13 @@ const MainMenu = () => {
         <div className="mainMenu">
             <img src={logo} className="mainMenuHeader" alt="logo"/>
             <div className="mainContainer">
-                {activeForm === "starting" && <StartButton setActiveForm={setActiveForm} hide={fadeOut} show={fadeIn}/>}
-                {activeForm === "mainButtons" && <MainButtons initFormState={setInitFormName}
-                                                              setActiveForm={setActiveForm}
-                                                              hide={fadeOut} show={fadeIn}/>}
-                {activeForm === "form" && <AuthenticationForm initForm={initFormName} setActiveForm={setActiveForm}
-                                                              hide={fadeOut} show={fadeIn} getUserData={getUserData}/>}
-                {activeForm === "loading" && <Loader/>}
+                {activeState === "starting" && <StartButton setActiveState={setActiveState} hide={fadeOut} show={fadeIn}/>}
+                {activeState === "mainButtons" && <MainButtons initFormState={setInitFormName}
+                                                               setActiveState={setActiveState}
+                                                               hide={fadeOut} show={fadeIn}/>}
+                {activeState === "form" && <AuthenticationForm initForm={initFormName} setActiveState={setActiveState}
+                                                               hide={fadeOut} show={fadeIn} getUserData={getUserData}/>}
+                {activeState === "loading" && <Loader/>}
             </div>
             <Ships/>
             <SocialMediaButtons/>

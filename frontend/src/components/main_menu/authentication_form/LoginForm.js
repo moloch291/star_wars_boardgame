@@ -5,7 +5,7 @@ import loginTextImg from "../../../img/textImages/text_login.png";
 import { r2D2_3 } from "../../audio/AudioPlayer";
 
 
-const LoginForm = ({setActiveForm, switching}) => {
+const LoginForm = ({setActiveState, switching}) => {
     const [emailAddress, setEmailAddress] = useState("");
     const [password, setPassword] = useState("");
 
@@ -23,7 +23,7 @@ const LoginForm = ({setActiveForm, switching}) => {
             })
         };
         r2D2_3();
-        setActiveForm("loading");
+        setActiveState("loading");
         fetch(destination, payload).then(function(res) {console.log(res)});
     };
 

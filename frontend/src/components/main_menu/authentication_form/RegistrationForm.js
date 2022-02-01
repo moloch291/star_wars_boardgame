@@ -5,7 +5,7 @@ import registrationFormTextImg from "../../../img/textImages/text_register.png";
 import { r2D2_3 } from "../../audio/AudioPlayer";
 
 
-const RegistrationForm = ({setActiveForm, switching}) => {
+const RegistrationForm = ({setActiveState, switching}) => {
     const [emailAddress, setEmailAddress] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -27,7 +27,7 @@ const RegistrationForm = ({setActiveForm, switching}) => {
                 })
             };
             r2D2_3();
-            setActiveForm("loading");
+            setActiveState("loading");
             fetch(destination, payload).then(function(res) {console.log(res)});
         } else alert("The passwords should match!");
     };

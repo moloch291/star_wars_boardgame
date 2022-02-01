@@ -1,7 +1,7 @@
 import {doorSound, playMainTheme, r2D2_1, r2D2_2} from "../audio/AudioPlayer";
 import startButtonImg from "../../img/_jediButton.png";
 
-const StartButton = ({setActiveForm, hide, show}) => {
+const StartButton = ({setActiveState, hide, show}) => {
 
     const pressSound = () => {
         doorSound();
@@ -19,7 +19,7 @@ const StartButton = ({setActiveForm, hide, show}) => {
              onClick={async () => {
                  pressSound();
                  await hide();
-                 setActiveForm("mainButtons");
+                 setActiveState("mainButtons");
                  show();
             }}
         />

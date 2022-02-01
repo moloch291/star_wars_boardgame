@@ -8,12 +8,12 @@ import {
     tieFighterEffect, tieFighterFire
 } from "../audio/AudioPlayer";
 
-const MainButtons = ({initFormState, setActiveForm, hide, show}) => {
+const MainButtons = ({initFormState, setActiveState, hide, show}) => {
 
     const proceed = async (currentFormState) => {
         initFormState(currentFormState);
         await hide();
-        setActiveForm("form");
+        setActiveState("form");
         show();
     };
 

@@ -7,20 +7,19 @@ import LoginForm from "./LoginForm";
 import RegistrationForm from "./RegistrationForm";
 
 
-const AuthenticationForm = ({initForm, setActiveForm, hide, show, getUserData}) => {
-    const [activeState, setActiveState] = useState(initForm);
+const AuthenticationForm = ({initForm, setActiveState, hide, show, getUserData}) => {
+    const [activeForm, setActiveForm] = useState(initForm);
 
     const switchingState = async () => {
         doorSound();
         await hide();
-        setActiveState(activeState === "login" ? "registration" : "login");
+        setActiveForm(activeForm === "login" ? "registration" : "login");
         show();
     };
 
-    if (activeState === "login")
-        return (<LoginForm setActiveForm={setActiveForm} switching={switchingState} getUserData={getUserData}/>);
-    else
-        return (<RegistrationForm setActiveForm={setActiveForm} switching={switchingState} getUserData={getUserData}/>);
+    if (activeForm === "login")
+        return (<LoginForm setActiveState={setActiveState} switching={switchingState} getUserData={getUserData}/>);
+    return ( <RegistrationForm setActiveState={setActiveState} switching={switchingState} getUserData={getUserData}/>);
 };
 
 export default AuthenticationForm;
