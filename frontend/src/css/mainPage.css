@@ -13,6 +13,7 @@ body {
 
 .mainContainer {
     height: 420px;
+    will-change: opacity;
 }
 
 #startButton {

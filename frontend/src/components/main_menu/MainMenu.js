@@ -1,16 +1,16 @@
+// React:
 import React, {useState} from "react";
-// components:
-import StartButton from "./StartButton"
-import MainButtons from "./MainButtons";
-import AuthenticationForm from "./AuthenticationForm";
-import Loader from "./Loader";
-import SocialMediaButtons from "./SocialMediaButtons";
-import AudioHandler from "../audio/AudioHandler";
 // Style:
 import '../../css/menu/forms.css';
 import '../../css/loader.css';
 import logo from "../../img/_swLogo2.png";
 import Ships from "./Ships";
+// Child components:
+import StartButton from "./StartButton"
+import MainButtons from "./MainButtons";
+import AuthenticationForm from "./authentication_form/AuthenticationForm";
+import Loader from "./Loader";
+import SocialMediaButtons from "./SocialMediaButtons";
 
 
 const MainMenu = () => {
@@ -26,60 +26,56 @@ const MainMenu = () => {
 
     const enterButtonsState = async () => {
         await fadeOut();
-        setTimeout(async () => {
-            setStartingState(false);
-            await setButtonState(true);
-            fadeIn();
-        }, 500);
+        setStartingState(false);
+        setButtonState(true);
+        fadeIn();
     };
 
     const enterFormState = async () => {
         await fadeOut();
-        setTimeout(() => {
-            setButtonState(false);
-            setFormState(true);
-        }, 500);
-        setTimeout(async () => {
-            fadeIn();
-        }, 600);
+        setButtonState(false);
+        setFormState(true);
+        fadeIn();
     };
 
-    const switchForms = () => {
-        fadeOut();
-        setTimeout(() => {
-            fadeIn();
-        }, 500);
+    const enterLoadingState = async () => {
+        await fadeOut();
+        setFormState(false);
+        setLoadingState(true);
+        fadeIn();
     };
 
-    const enterLoadingState = () => {
-        fadeOut();
-        setTimeout(async () => {
-            setFormState(false);
-            setLoadingState(true);
-            fadeIn();
-        }, 700);
-    };
+/*######################################################################################################################
+    Faders:
+######################################################################################################################*/
 
-    const clickMethod = () => {
-        alert("Will upgrade to new version!");
-    };
+    const fadeOut = () =>
+        new Promise((resolve) => {
+            const mainContainer = document.querySelector(".mainContainer");
+            mainContainer.classList.add("fadeOut");
 
-    /*######################################################################################################################
-        Faders:
-    ######################################################################################################################*/
+            const cleanUp = () => {
+                mainContainer.removeEventListener("animationend", cleanUp);
+                mainContainer.classList.remove("fadeOut");
+                resolve();
+            };
 
-    const fadeOut = () => {
-        document.querySelector(".mainContainer").classList.add("fadeOut");
-    };
+            mainContainer.addEventListener("animationend", cleanUp);
+        });
 
-    const fadeIn = async () => {
-        const mainContainer = document.querySelector(".mainContainer");
-        mainContainer.classList.remove("fadeOut");
-        mainContainer.classList.add("fadeIn");
-        setTimeout(() => {
-            mainContainer.classList.remove("fadeIn");
-        }, 500);
-    };
+    const fadeIn = () =>
+        new Promise((resolve) => {
+            const mainContainer = document.querySelector(".mainContainer");
+            mainContainer.classList.add("fadeIn");
+
+            const cleanUp = () => {
+                mainContainer.removeEventListener("animationend", cleanUp);
+                mainContainer.classList.remove("fadeIn");
+                resolve();
+            };
+
+            mainContainer.addEventListener("animationend", cleanUp);
+        });
 
 //######################################################################################################################
 
@@ -87,10 +83,10 @@ const MainMenu = () => {
         <div className="mainMenu">
             <img src={logo} className="mainMenuHeader" alt="logo"/>
             <div className="mainContainer">
-                {startingState && <StartButton initAuth={enterButtonsState} alertFunc={clickMethod}/>}
+                {startingState && <StartButton initAuth={enterButtonsState}/>}
                 {buttonState && <MainButtons initFormState={setInitFormName} initForm={enterFormState}/>}
-                {formState &&
-                    <AuthenticationForm initForm={initFormName} switchForms={switchForms} loading={enterLoadingState}/>}
+                {formState && <AuthenticationForm initForm={initFormName} loading={enterLoadingState}
+                                                  hide={fadeOut} show={fadeIn}/>}
                 {loadingState && <Loader/>}
             </div>
             <Ships/>

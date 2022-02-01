@@ -1,29 +1,12 @@
-import "../../css/menu/xWing.css"
-import {useEffect, useState} from "react";
+import "../../css/menu/ships.css"
+import {useEffect} from "react";
 
 const Ships = () => {
-    const [xWingState, setXWingState] = useState("active");
-    const [starDestroyerState, setStarDestroyerState] = useState("active");
-
-//######################################################################################################################
-    // starDestroyer effects:
-//######################################################################################################################
-
-
-
-//######################################################################################################################
-    // xWing effects:
-
-    useEffect(() => {
-        setTimeout(() => {
-            setXWingState("inactive");
-        }, 20000);
-    }, []);
 
     useEffect(() => {
         setTimeout(() => {
             document.querySelector(".xWingContainer")
-                .setAttribute("style", "bottom: 55%;");
+                .setAttribute("style", "bottom: 55%; height: 30px; animation-duration: 15s");
         }, 8000);
     }, []);
 
@@ -31,10 +14,10 @@ const Ships = () => {
 
     return (
         <div>
-            <div className={"xWingContainer " + xWingState}>
+            <div className={"xWingContainer active"}>
                 <div className="xWing"/>
             </div>
-            <div className={"starDestroyerContainer " + starDestroyerState}>
+            <div className={"starDestroyerContainer active"}>
                 <div className="starDestroyer"/>
             </div>
         </div>
