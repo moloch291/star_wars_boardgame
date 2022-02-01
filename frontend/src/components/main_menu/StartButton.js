@@ -19,7 +19,6 @@ const StartButton = ({initAuth}) => {
              onClick={() => {
                  pressSound();
                  initAuth();
-                 alert("Pre update!")
             }}
         />
     );
