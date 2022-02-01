@@ -4,7 +4,8 @@ import {useState} from "react";
 import loginTextImg from "../../../img/textImages/text_login.png";
 import { r2D2_3 } from "../../audio/AudioPlayer";
 
-const LoginForm = ({loading, switching}) => {
+
+const LoginForm = ({setActiveForm, switching}) => {
     const [emailAddress, setEmailAddress] = useState("");
     const [password, setPassword] = useState("");
 
@@ -21,23 +22,21 @@ const LoginForm = ({loading, switching}) => {
                 password: password
             })
         };
+        r2D2_3();
+        setActiveForm("loading");
         fetch(destination, payload).then(function(res) {console.log(res)});
     };
 
     return (
         <div className="loginForm">
             <div className="loginWrapper">
-                <img src={loginTextImg} alt="form title"/>
+                <img src={loginTextImg} alt="login form title"/>
                 <input type="email" id="user-email" name="user-email" placeholder="Email" required
                     onChange={(e) => {setEmailAddress(e.currentTarget.value)}}/>
                 <input type="password" id="user-password" name="user-password" placeholder="Password" required
                     onChange={(e) => {setPassword(e.currentTarget.value)}}/>
                     <p>.</p>
-                <button className="formButton" onClick={() => {
-                    r2D2_3();
-                    loading();
-                    submission();
-                }}>Login</button>
+                <button className="formButton" onClick={submission}>Login</button>
                     <p>"New to the game?"</p>
                 <button className="formButton" onClick={switching}>Registration</button>
             </div>

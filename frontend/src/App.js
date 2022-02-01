@@ -1,8 +1,8 @@
-// Importing style:
+// Styling:
 import './css/mainPage.css';
 import './css/menu/socialMediaButtons.css';
 import './css/fadeEffects.css';
-// Components:
+// Child components:
 import AudioHandler from "./components/audio/AudioHandler";
 import MainMenu from "./components/main_menu/MainMenu";
 

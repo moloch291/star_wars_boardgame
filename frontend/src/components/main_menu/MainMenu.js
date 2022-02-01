@@ -1,5 +1,5 @@
 // React:
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 // Style:
 import '../../css/menu/forms.css';
 import '../../css/loader.css';
@@ -14,36 +14,14 @@ import SocialMediaButtons from "./SocialMediaButtons";
 
 
 const MainMenu = () => {
-    const [startingState, setStartingState] = useState(true);
-    const [buttonState, setButtonState] = useState(false);
-    const [formState, setFormState] = useState(false);
-    const [loadingState, setLoadingState] = useState(false);
+
+    const [activeForm, setActiveForm] = useState("starting");
     const [initFormName, setInitFormName] = useState("");
+    const [userData, setUserData] = useState(null);
 
-    /*######################################################################################################################
-        States:
-    ######################################################################################################################*/
-
-    const enterButtonsState = async () => {
-        await fadeOut();
-        setStartingState(false);
-        setButtonState(true);
-        fadeIn();
-    };
-
-    const enterFormState = async () => {
-        await fadeOut();
-        setButtonState(false);
-        setFormState(true);
-        fadeIn();
-    };
-
-    const enterLoadingState = async () => {
-        await fadeOut();
-        setFormState(false);
-        setLoadingState(true);
-        fadeIn();
-    };
+    const getUserData = (newUserData) => {
+        setUserData(newUserData);
+    }
 
 /*######################################################################################################################
     Faders:
@@ -83,11 +61,13 @@ const MainMenu = () => {
         <div className="mainMenu">
             <img src={logo} className="mainMenuHeader" alt="logo"/>
             <div className="mainContainer">
-                {startingState && <StartButton initAuth={enterButtonsState}/>}
-                {buttonState && <MainButtons initFormState={setInitFormName} initForm={enterFormState}/>}
-                {formState && <AuthenticationForm initForm={initFormName} loading={enterLoadingState}
-                                                  hide={fadeOut} show={fadeIn}/>}
-                {loadingState && <Loader/>}
+                {activeForm === "starting" && <StartButton setActiveForm={setActiveForm} hide={fadeOut} show={fadeIn}/>}
+                {activeForm === "mainButtons" && <MainButtons initFormState={setInitFormName}
+                                                              setActiveForm={setActiveForm}
+                                                              hide={fadeOut} show={fadeIn}/>}
+                {activeForm === "form" && <AuthenticationForm initForm={initFormName} setActiveForm={setActiveForm}
+                                                              hide={fadeOut} show={fadeIn} getUserData={getUserData}/>}
+                {activeForm === "loading" && <Loader/>}
             </div>
             <Ships/>
             <SocialMediaButtons/>

@@ -6,25 +6,21 @@ import {doorSound} from "../../audio/AudioPlayer";
 import LoginForm from "./LoginForm";
 import RegistrationForm from "./RegistrationForm";
 
-const AuthenticationForm = ({initForm, loading, hide, show}) => {
-    const [activeForm, setActiveForm] = useState(initForm);
-    const [userData, setUserData] = useState({});
 
-    const switchingForms = async () => {
+const AuthenticationForm = ({initForm, setActiveForm, hide, show, getUserData}) => {
+    const [activeState, setActiveState] = useState(initForm);
+
+    const switchingState = async () => {
         doorSound();
         await hide();
-        setActiveForm(activeForm === "login" ? "registration" : "login");
+        setActiveState(activeState === "login" ? "registration" : "login");
         show();
     };
 
-    if (activeForm === "login") {
-        return (
-            <LoginForm loading={loading} switching={switchingForms}/>
-        );
-    }
-    return (
-        <RegistrationForm loading={loading} switching={switchingForms}/>
-    );
+    if (activeState === "login")
+        return (<LoginForm setActiveForm={setActiveForm} switching={switchingState} getUserData={getUserData}/>);
+    else
+        return (<RegistrationForm setActiveForm={setActiveForm} switching={switchingState} getUserData={getUserData}/>);
 };
 
 export default AuthenticationForm;

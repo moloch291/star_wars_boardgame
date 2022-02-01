@@ -8,17 +8,23 @@ import {
     tieFighterEffect, tieFighterFire
 } from "../audio/AudioPlayer";
 
-const MainButtons = ({initFormState, initForm}) => {
+const MainButtons = ({initFormState, setActiveForm, hide, show}) => {
+
+    const proceed = async (currentFormState) => {
+        initFormState(currentFormState);
+        await hide();
+        setActiveForm("form");
+        show();
+    };
 
     return (
         <div className="mainButtonContainer formContainer">
             <button className="glow-on-hover"
                     id="login"
                     onMouseEnter={playXWingEffect}
-                    onClick={async () => {
+                    onClick={() => {
                         xWingFire();
-                        await initFormState("login");
-                        initForm();
+                        proceed("login");
                     }}>
                 <img src={lightLoginTextImg} alt="login button"/>
             </button>
@@ -27,8 +33,7 @@ const MainButtons = ({initFormState, initForm}) => {
                     onMouseEnter={tieFighterEffect}
                     onClick={async () => {
                         tieFighterFire();
-                        await initFormState("registration");
-                        initForm();
+                        proceed("registration");
                     }}>
                 <img src={lightRegisterTextImg}
                      alt="login button"
